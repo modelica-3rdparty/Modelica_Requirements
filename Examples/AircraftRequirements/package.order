@@ -1,0 +1,9 @@
+LimitedControlFrequency
+MinimumAirDistributionPerformance
+MinimumOperationalServiceLife
+MaximumCabinTemperatureIncrease
+MaximumCabinDissipatedPowerIncrease
+LimitedCabinAltitudeRateOfChange
+LimitedFreshECSFlow
+PreventHeatExchangerClogging
+TriggerAPUStartSequence
