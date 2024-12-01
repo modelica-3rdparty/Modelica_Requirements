@@ -10,7 +10,7 @@ package Internal "Library of internal components (should not be directly used)"
      flow Real one "Return 1 (to calculate number of requirement blocks"  annotation(HideResult=true);
   end SortingPort;
 
-  function initializeLogFile
+  impure function initializeLogFile
     "Initialize log file (remove existing file and add a blank line"
      input String logFile;
      input Real dummyInput;
@@ -25,7 +25,7 @@ package Internal "Library of internal components (should not be directly used)"
   annotation(__iti_Impure = true);
   end initializeLogFile;
 
-  function printViolationsToLogFile
+  impure function printViolationsToLogFile
     "Print information about one requirement to log file"
      import Modelica.Utilities.Streams.print;
      input String logFile "Name of log file";
@@ -64,7 +64,7 @@ package Internal "Library of internal components (should not be directly used)"
   annotation(__iti_Impure = true);
   end printViolationsToLogFile;
 
-  function printViolationsToOutput
+  impure function printViolationsToOutput
     "Print violated, untested and satisfied requirements to output window"
      import Modelica.Utilities.Streams.*;
      import Modelica.Utilities.Strings.*;
@@ -401,7 +401,7 @@ package Internal "Library of internal components (should not be directly used)"
      algorithm
      end init;
 
-     function push
+     impure function push
       "Store an element on the sliding window buffer and remove elements that are older as the window length"
         import Modelica.Utilities.Streams.print;
         input Buffer buffer "Memory of sliding window";
