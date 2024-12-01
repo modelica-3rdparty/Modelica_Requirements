@@ -1499,7 +1499,7 @@ results in
       "Polygon defining the boundary of the domain (polygon[i,2] is point i of polygon)";
 
   protected
-    type Color = Integer[3](min=0, max=255);
+    type Color = Integer[3](each min=0, each max=255);
     parameter Color inSide = {0, 127, 0} "Color when inside polygon (= green)";
     parameter Color outSide = {255, 0, 0} "Color when outside polygon (= red)";
     parameter Real icon_max = 195 "Length of x and y axis of icon";
