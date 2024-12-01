@@ -1061,10 +1061,10 @@ Note, that the point is outside of the domain defined by the polygon if distance
           f_resolution=0.2,
           maxAmplitude=[0,6; 1,6; 2,4; 3,1.5; 4,1.5])
           annotation (Placement(transformation(extent={{8,0},{68,60}})));
-        Modelica.Blocks.Sources.Sine sine2(amplitude=3, freqHz=2)
-          annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
-        Modelica.Blocks.Sources.Sine sine3(amplitude=1.5, freqHz=3)
-          annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+      Modelica.Blocks.Sources.Sine sine2(amplitude=3, f=2)
+        annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+      Modelica.Blocks.Sources.Sine sine3(amplitude=1.5, f=3)
+        annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
         Modelica.Blocks.Sources.Constant const(k=5)
           annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
         Modelica.Blocks.Math.MultiSum multiSum(nu=3)
@@ -1164,14 +1164,17 @@ A plot of the FFT result file is shown in the next figure:
           f_max=6,
           maxAmplitude=[0,6; 1,6; 2,4; 3,1.5; 10,1.5])
           annotation (Placement(transformation(extent={{20,0},{80,60}})));
-        Modelica.Blocks.Sources.Sine sine2(amplitude=3, freqHz=2)
-          annotation (Placement(transformation(extent={{-80,8},{-60,28}})));
-        Modelica.Blocks.Sources.Sine sine3(amplitude=1.5, freqHz=3)
-          annotation (Placement(transformation(extent={{-80,-24},{-60,-4}})));
+      Modelica.Blocks.Sources.Sine sine2(amplitude=3, f=2)
+        annotation (Placement(transformation(extent={{-80,8},{-60,28}})));
+      Modelica.Blocks.Sources.Sine sine3(amplitude=1.5, f=3)
+        annotation (Placement(transformation(extent={{-80,-24},{-60,-4}})));
         Modelica.Blocks.Sources.Constant const(k=5)
           annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-        Modelica.Blocks.Sources.Sine sine5(freqHz=5,startTime=7,amplitude=2)
-          annotation (Placement(transformation(extent={{-80,-56},{-60,-36}})));
+      Modelica.Blocks.Sources.Sine sine5(
+        f=5,
+        startTime=7,
+        amplitude=2)
+        annotation (Placement(transformation(extent={{-80,-56},{-60,-36}})));
         Modelica.Blocks.Math.MultiSum multiSum(nu=4)
           annotation (Placement(transformation(extent={{-36,24},{-24,36}})));
         Modelica.Blocks.Sources.BooleanTable booleanTable(table={1,1.5,9,9.5})
@@ -1255,10 +1258,10 @@ As can be seen, the first FFT fulfills the check (scaledDistance = 0), whereas t
           f_base=2,
           maxAmplitude=[0,120; 1,120; 2,100; 3,50; 4,50])
           annotation (Placement(transformation(extent={{4,0},{64,60}})));
-        Modelica.Blocks.Sources.Sine sine2(amplitude=3, freqHz=2)
-          annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
-        Modelica.Blocks.Sources.Sine sine3(amplitude=1.5, freqHz=3)
-          annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+      Modelica.Blocks.Sources.Sine sine2(amplitude=3, f=2)
+        annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+      Modelica.Blocks.Sources.Sine sine3(amplitude=1.5, f=3)
+        annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
         Modelica.Blocks.Sources.Constant const(k=3)
           annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
         Modelica.Blocks.Math.MultiSum multiSum(nu=3)
@@ -1360,14 +1363,17 @@ A plot of the FFT result file is shown in the next figure:
           f_base=2,
           maxAmplitude=[0,120; 1,120; 2,100; 3,50; 10,50])
           annotation (Placement(transformation(extent={{20,0},{80,60}})));
-        Modelica.Blocks.Sources.Sine sine2(amplitude=3, freqHz=2)
-          annotation (Placement(transformation(extent={{-80,8},{-60,28}})));
-        Modelica.Blocks.Sources.Sine sine3(amplitude=1.5, freqHz=3)
-          annotation (Placement(transformation(extent={{-80,-24},{-60,-4}})));
+      Modelica.Blocks.Sources.Sine sine2(amplitude=3, f=2)
+        annotation (Placement(transformation(extent={{-80,8},{-60,28}})));
+      Modelica.Blocks.Sources.Sine sine3(amplitude=1.5, f=3)
+        annotation (Placement(transformation(extent={{-80,-24},{-60,-4}})));
         Modelica.Blocks.Sources.Constant const(k=3)
           annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-        Modelica.Blocks.Sources.Sine sine5(freqHz=5,startTime=7,amplitude=2)
-          annotation (Placement(transformation(extent={{-80,-56},{-60,-36}})));
+      Modelica.Blocks.Sources.Sine sine5(
+        f=5,
+        startTime=7,
+        amplitude=2)
+        annotation (Placement(transformation(extent={{-80,-56},{-60,-36}})));
         Modelica.Blocks.Math.MultiSum multiSum(nu=4)
           annotation (Placement(transformation(extent={{-36,24},{-24,36}})));
         Modelica.Blocks.Sources.BooleanTable booleanTable(table={1,1.5,9,9.5})
@@ -1450,22 +1456,22 @@ As can be seen, the first FFT fulfills the check (scaledDistance = 0), whereas t
         Modelica_Requirements.ChecksInFixedWindow_withFFT.MaxTotalHarmonicDistortion
           maxTHD1(f_resolution=0.2, f_base=2)
           annotation (Placement(transformation(extent={{-2,0},{58,60}})));
-        Modelica.Blocks.Sources.Sine sine1(amplitude=3, freqHz=2)
-          annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-        Modelica.Blocks.Sources.Sine sine2(               freqHz=4, amplitude=0.2)
-          annotation (Placement(transformation(extent={{-80,8},{-60,28}})));
+      Modelica.Blocks.Sources.Sine sine1(amplitude=3, f=2)
+        annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+      Modelica.Blocks.Sources.Sine sine2(f=4, amplitude=0.2)
+        annotation (Placement(transformation(extent={{-80,8},{-60,28}})));
         Modelica.Blocks.Sources.Constant const(k=2.5)
           annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
         Modelica.Blocks.Math.MultiSum multiSum(nu=6)
           annotation (Placement(transformation(extent={{-36,24},{-24,36}})));
         Modelica_Requirements.Sources.BooleanConstant const1
           annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
-        Modelica.Blocks.Sources.Sine sine3(               freqHz=6, amplitude=0.15)
-          annotation (Placement(transformation(extent={{-80,-26},{-60,-6}})));
-        Modelica.Blocks.Sources.Sine sine4(                freqHz=8, amplitude=0.1)
-          annotation (Placement(transformation(extent={{-14,-40},{-34,-20}})));
-        Modelica.Blocks.Sources.Sine sine5(                freqHz=10, amplitude=0.08)
-          annotation (Placement(transformation(extent={{-14,-6},{-34,14}})));
+      Modelica.Blocks.Sources.Sine sine3(f=6, amplitude=0.15)
+        annotation (Placement(transformation(extent={{-80,-26},{-60,-6}})));
+      Modelica.Blocks.Sources.Sine sine4(f=8, amplitude=0.1)
+        annotation (Placement(transformation(extent={{-14,-40},{-34,-20}})));
+      Modelica.Blocks.Sources.Sine sine5(f=10, amplitude=0.08)
+        annotation (Placement(transformation(extent={{-14,-6},{-34,14}})));
       equation
         connect(const.y, multiSum.u[1]) annotation (Line(points={{-59,80},{-46,80},{-46,
                 33.5},{-36,33.5}},            color={0,0,127}));
@@ -1550,23 +1556,23 @@ A plot of the FFT result file is shown in the next figure:
           maxTHD1(f_resolution=0.2, f_base=2,
           THDmax=0.1)
           annotation (Placement(transformation(extent={{20,0},{80,60}})));
-        Modelica.Blocks.Sources.Sine sine1(amplitude=3, freqHz=2)
-          annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-        Modelica.Blocks.Sources.Sine sine2(               freqHz=4, amplitude=0.2)
-          annotation (Placement(transformation(extent={{-80,8},{-60,28}})));
+      Modelica.Blocks.Sources.Sine sine1(amplitude=3, f=2)
+        annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+      Modelica.Blocks.Sources.Sine sine2(f=4, amplitude=0.2)
+        annotation (Placement(transformation(extent={{-80,8},{-60,28}})));
         Modelica.Blocks.Sources.Constant const(k=2.5)
           annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
         Modelica.Blocks.Math.MultiSum multiSum(nu=6)
           annotation (Placement(transformation(extent={{-36,24},{-24,36}})));
-        Modelica.Blocks.Sources.Sine sine3(               freqHz=6,
-          amplitude=0.3,
-          startTime=7)
-          annotation (Placement(transformation(extent={{-80,-26},{-60,-6}})));
-        Modelica.Blocks.Sources.Sine sine4(amplitude=0.15, freqHz=8)
-          annotation (Placement(transformation(extent={{0,-34},{-20,-14}})));
-        Modelica.Blocks.Sources.Sine sine5(                freqHz=10, amplitude=
-             0.1)
-          annotation (Placement(transformation(extent={{0,0},{-20,20}})));
+      Modelica.Blocks.Sources.Sine sine3(
+        f=6,
+        amplitude=0.3,
+        startTime=7)
+        annotation (Placement(transformation(extent={{-80,-26},{-60,-6}})));
+      Modelica.Blocks.Sources.Sine sine4(amplitude=0.15, f=8)
+        annotation (Placement(transformation(extent={{0,-34},{-20,-14}})));
+      Modelica.Blocks.Sources.Sine sine5(f=10, amplitude=0.1)
+        annotation (Placement(transformation(extent={{0,0},{-20,20}})));
         Modelica.Blocks.Sources.BooleanTable booleanTable(table={1,1.5,9,9.5})
           annotation (Placement(transformation(extent={{-32,60},{-12,80}})));
       equation
@@ -2251,7 +2257,7 @@ results in
         annotation (Placement(transformation(extent={{-40,-4},{-20,16}})));
       Modelica.Blocks.Sources.Sine sine(
         amplitude=2,
-        freqHz=1,
+        f=1,
         phase=0.78539816339745)
         annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
       Modelica_Requirements.SignalAnalysis.ApproximateDerivativeWithWindow
@@ -2313,7 +2319,7 @@ needs some time until the approximation of the derivative is fine.
       "Example for Integrator (output is the integral over the input, as long as input active is true)"
       extends Modelica.Icons.Example;
 
-      Modelica.Blocks.Sources.Sine sine(freqHz=0.3, offset=2)
+      Modelica.Blocks.Sources.Sine sine(f=0.3, offset=2)
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
       Modelica.Blocks.Sources.BooleanPulse pulse(period=2, startTime=1)
         annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
@@ -2356,7 +2362,7 @@ results in
       "Example for MovingAverage (output is the continuous moving average of the input, as long as input active is true)"
       extends Modelica.Icons.Example;
 
-      Modelica.Blocks.Sources.Sine sine(freqHz=0.3, offset=2)
+      Modelica.Blocks.Sources.Sine sine(f=0.3, offset=2)
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
       Modelica.Blocks.Sources.BooleanPulse pulse(          startTime=1, period=3)
         annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
@@ -2439,7 +2445,7 @@ results in
       "Example for CrossingMonitoring (output is true for a positive threshold crossing of the input and false for a negative threshold crossing)"
       extends Modelica.Icons.Example;
 
-      Modelica.Blocks.Sources.Sine sine(freqHz=2)
+      Modelica.Blocks.Sources.Sine sine(f=2)
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
       Modelica_Requirements.SignalAnalysis.CrossingMonitoring crossingMon1(
           threshold=0.5)
@@ -2571,7 +2577,7 @@ results in
 
       Modelica_Requirements.LogicalBlocks.GreaterThreshold gt1(threshold=0.5)
         annotation (Placement(transformation(extent={{-40,40},{0,60}})));
-      Modelica.Blocks.Sources.Sine sine(amplitude=2, freqHz=1)
+      Modelica.Blocks.Sources.Sine sine(amplitude=2, f=1)
         annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
       Modelica_Requirements.LogicalBlocks.GreaterEqualThreshold ge1(threshold=
             0.5)

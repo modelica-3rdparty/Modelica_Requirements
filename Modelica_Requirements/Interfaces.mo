@@ -398,7 +398,7 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
 
   partial block PartialTriggeredMovingWindow
     "Icon and equationns for a block with a trigger signal and a moving time window"
-     parameter Modelica.SIunits.Time T(min=Modelica.Constants.eps)
+    parameter Modelica.Units.SI.Time T(min=Modelica.Constants.eps)
       "Length of sliding time window";
 
     Modelica.Blocks.Interfaces.RealInput u "Real input signal"
@@ -497,7 +497,7 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
 
     input Boolean check(start = false) "Boolean to check"
        annotation(Dialog);
-    parameter Modelica.SIunits.Time window(min=Modelica.Constants.eps)
+    parameter Modelica.Units.SI.Time window(min=Modelica.Constants.eps)
       "Length of sliding time window (> 0)";
     Modelica.Blocks.Interfaces.BooleanOutput y
       "= true if property satisfied, otherwise false"
@@ -581,7 +581,7 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
 
     input Boolean check(start = false) "Boolean to check"
        annotation(Dialog);
-    parameter Modelica.SIunits.Time window(min=Modelica.Constants.eps)
+    parameter Modelica.Units.SI.Time window(min=Modelica.Constants.eps)
       "Length of sliding time window (> 0)";
     Modelica_Requirements.Interfaces.PropertyOutput y "Property output signal"
       annotation (Placement(transformation(extent={{200,-10},{220,10}})));

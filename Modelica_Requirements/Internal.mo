@@ -36,7 +36,7 @@ package Internal "Library of internal components (should not be directly used)"
       "= true, if requirement is violated (at least one failure)";
      input Boolean untested
       "= true, if requirement is untested, otherwise requirement is tested and satisfied";
-     input Modelica.SIunits.Time firstFailureTime
+    input Modelica.Units.SI.Time firstFailureTime
       "Time instant of first failure (if atLeastOneFailure=true)";
      output Real ok "Dummy variable needed for sorting";
   protected
@@ -78,7 +78,7 @@ package Internal "Library of internal components (should not be directly used)"
       "Only provided to guarantee that printViolationsToOutput is called after logFile was generated";
      input Real satisfaction
       "Satisfaction of all requirements in % (0% ... 100%)";
-     input Modelica.SIunits.Time satisfactionTime
+    input Modelica.Units.SI.Time satisfactionTime
       "Input satisfaction is with respect to satisfactionTime";
      input Boolean printViolated = true
       "= true, if violated requirements shall be printed";
@@ -385,10 +385,9 @@ package Internal "Library of internal components (should not be directly used)"
      extends Modelica.Icons.Package;
      constant Integer nBuffer = 20 "Length of buffer";
      record Buffer "Memory of sliding window"
-        Modelica.SIunits.Time T "Length of sliding window";
-        Modelica.SIunits.Time t0
-        "Time instant where sliding time window starts";
-        Modelica.SIunits.Time t[nBuffer] "Time instants";
+      Modelica.Units.SI.Time T "Length of sliding window";
+      Modelica.Units.SI.Time t0 "Time instant where sliding time window starts";
+      Modelica.Units.SI.Time t[nBuffer] "Time instants";
         Boolean b[nBuffer] "Values at corresponding time instants";
         Integer first "Index of first element in buffer";
         Integer last "Index of last element in buffer";
@@ -396,8 +395,8 @@ package Internal "Library of internal components (should not be directly used)"
      end Buffer;
 
      function init "Initialize a sliding window buffer"
-        input Modelica.SIunits.Time T "Length of window";
-        input Modelica.SIunits.Time t0 "Initial time instant";
+      input Modelica.Units.SI.Time T "Length of window";
+      input Modelica.Units.SI.Time t0 "Initial time instant";
         output Buffer buffer = Buffer(T=T, t0=t0, t=fill(0, nBuffer), b=fill(false, nBuffer), first=0, last=0, nElem=0) "Initialized buffer";
      algorithm
      end init;
@@ -412,7 +411,7 @@ package Internal "Library of internal components (should not be directly used)"
         output Buffer newBuffer "Updated memory of sliding window";
     protected
         constant Real eps = 1000*Modelica.Constants.eps;
-        Modelica.SIunits.Time tOld = t - (1-eps)*buffer.T;
+      Modelica.Units.SI.Time tOld=t - (1 - eps)*buffer.T;
         Integer first = buffer.first;
         Integer last = buffer.last;
         Integer nElem = buffer.nElem;
@@ -484,7 +483,7 @@ package Internal "Library of internal components (should not be directly used)"
         output Buffer newBuffer "Updated memory of sliding window";
     protected
         constant Real eps = 1000*Modelica.Constants.eps;
-        Modelica.SIunits.Time tOld = t - (1-eps)*buffer.T;
+      Modelica.Units.SI.Time tOld=t - (1 - eps)*buffer.T;
         Integer first = buffer.first;
         Integer last = buffer.last;
         Integer nElem = buffer.nElem;
@@ -537,7 +536,7 @@ package Internal "Library of internal components (should not be directly used)"
       "Return time instant when the oldest element is leaving the buffer"
         input Buffer buffer "Memory of sliding window";
         input Real t "Actual time instant";
-        output Modelica.SIunits.Time t_next
+      output Modelica.Units.SI.Time t_next
         "Next time instant where the oldest value (t,b) in the buffer is leaving the time window";
      algorithm
         t_next :=if buffer.nElem > 0 then buffer.t[buffer.last] + buffer.T else
@@ -583,7 +582,7 @@ package Internal "Library of internal components (should not be directly used)"
         input Buffer buffer "Memory of sliding window";
         input Integer index(min=1)
         "Index of time value (index >= 1; index=1: first)";
-        output Modelica.SIunits.Time t "Time value at index of buffer";
+      output Modelica.Units.SI.Time t "Time value at index of buffer";
     protected
         Integer first = buffer.first;
         Integer nElem = buffer.nElem;
@@ -608,15 +607,15 @@ package Internal "Library of internal components (should not be directly used)"
      function maxDuration
       "Returns the maximum duration where buffer value is true in the sliding time window"
         input Buffer buffer "Memory of sliding window";
-        input Modelica.SIunits.Time t "Actual time instant";
+      input Modelica.Units.SI.Time t "Actual time instant";
         input Boolean b = false
         "Actual value at t (used if no element is in the buffer)";
-        output Modelica.SIunits.Time duration
+      output Modelica.Units.SI.Time duration
         "Maximum duration where buffer value is true in window";
     protected
-        Modelica.SIunits.Time T = buffer.T;
-        Modelica.SIunits.Time t1;
-        Modelica.SIunits.Time t2;
+      Modelica.Units.SI.Time T=buffer.T;
+      Modelica.Units.SI.Time t1;
+      Modelica.Units.SI.Time t2;
         Integer nElem = buffer.nElem;
         Integer iStart;
      algorithm
@@ -661,15 +660,15 @@ package Internal "Library of internal components (should not be directly used)"
      function accumulatedDuration
       "Returns the accumulated duration where buffer value is true in the sliding time window"
         input Buffer buffer "Memory of sliding window";
-        input Modelica.SIunits.Time t "Actual time instant";
+      input Modelica.Units.SI.Time t "Actual time instant";
         input Boolean b = false
         "Actual value at t (used if no element is in the buffer)";
-        output Modelica.SIunits.Time duration
+      output Modelica.Units.SI.Time duration
         "Accumulated duration where buffer value is true in window";
     protected
-        Modelica.SIunits.Time T = buffer.T;
-        Modelica.SIunits.Time t1;
-        Modelica.SIunits.Time t2;
+      Modelica.Units.SI.Time T=buffer.T;
+      Modelica.Units.SI.Time t1;
+      Modelica.Units.SI.Time t2;
         Integer nElem = buffer.nElem;
         Integer iStart;
      algorithm
@@ -720,7 +719,7 @@ package Internal "Library of internal components (should not be directly used)"
 
     protected
        SlidingWindow.Buffer buffer;
-       Modelica.SIunits.Time duration;
+      Modelica.Units.SI.Time duration;
        constant Real eps = 1e-10;
     algorithm
        buffer :=SlidingWindow.init(4, 0);
@@ -787,7 +786,7 @@ package Internal "Library of internal components (should not be directly used)"
 
     protected
        SlidingWindow.Buffer buffer;
-       Modelica.SIunits.Time duration;
+      Modelica.Units.SI.Time duration;
        constant Real eps = 1e-10;
     algorithm
        buffer :=SlidingWindow.init(4, 0);

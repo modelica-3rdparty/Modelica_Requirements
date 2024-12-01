@@ -1,4 +1,4 @@
-﻿within ;
+within ;
 package Modelica_Requirements "Modelica_Requirements (Version 0.6) - Defining requirements formally and checking them when simulating"
   extends Modelica.Icons.Package;
 
@@ -95,9 +95,8 @@ end UsersGuide;
 
 
   annotation (preferredView="info",
-  uses(Modelica(version="3.2.2")),
-version="0.6",
-versionBuild=1,
+  uses(Modelica(version="4.0.0")),
+version="0.7",
 versionDate="2016-06-21",
 dateModified = "2016-06-21 08:44:41Z",
 revisionId="$Id:: package.mo 9390 2016-06-21 06:35:11Z #$",
@@ -174,5 +173,7 @@ https://www.Modelica.org/licenses/ModelicaLicense2</a>.</i>
 <b>Copyright &copy; 2014-2016, DLR, Dassault Aviation and UNICAL</b>
 </p>
 </html>"),
-  Icon(graphics));
+  Icon(graphics),
+    conversion(from(version="0.6", script=
+            "modelica://Modelica_Requirements/Resources/ConvertFromModelica_Requirements_0.6.mos")));
 end Modelica_Requirements;

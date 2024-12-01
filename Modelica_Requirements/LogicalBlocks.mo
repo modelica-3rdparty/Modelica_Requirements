@@ -457,7 +457,7 @@ This block is demonstrated with example
   block DelayedRising
     "Output y is true after a duration of a rising input edge and false after a falling input edge"
     input Boolean u "Boolean input" annotation(Dialog);
-    parameter Modelica.SIunits.Time duration(start=1)
+    parameter Modelica.Units.SI.Time duration(start=1)
       "Duration after rising edge of u";
     Modelica.Blocks.Interfaces.BooleanOutput y
       "= true, after rising edge of u for given duration"

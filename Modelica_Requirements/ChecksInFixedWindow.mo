@@ -79,7 +79,7 @@ results in
     extends Modelica_Requirements.Interfaces.PartialCheck;
     import Modelica_Requirements.Types.Property;
 
-    parameter Modelica.SIunits.Time durationMin(start=1,min=0)
+    parameter Modelica.Units.SI.Time durationMin(start=1, min=0)
       "Minimum duration in true condition phase";
   protected
     discrete Real actualDuration;
@@ -210,7 +210,7 @@ results in
     extends Modelica_Requirements.Interfaces.PartialCheck;
     import Modelica_Requirements.Types.Property;
 
-    parameter Modelica.SIunits.Time durationMax(start=1,min=0)
+    parameter Modelica.Units.SI.Time durationMax(start=1, min=0)
       "Maximum duration in true condition phase";
   protected
     discrete Real actualDuration;
@@ -343,8 +343,8 @@ results in
     "In every true condition phase, check must be true for at least a minimum duration and at most a maximum duration"
     extends Modelica_Requirements.Interfaces.PartialCheck;
     import Modelica_Requirements.Types.Property;
-    parameter Modelica.SIunits.Time durationMin(start=1) "Minimum duration";
-    parameter Modelica.SIunits.Time durationMax(start=2) "Maximum duration";
+    parameter Modelica.Units.SI.Time durationMin(start=1) "Minimum duration";
+    parameter Modelica.Units.SI.Time durationMax(start=2) "Maximum duration";
   protected
     discrete Real actualDuration;
     discrete Real startTime;
@@ -1036,7 +1036,7 @@ results in
     extends Modelica_Requirements.Interfaces.PartialCheck;
     import Modelica_Requirements.Types.Property;
 
-    parameter Modelica.SIunits.Frequency freqHzMax(min=0.0)
+    parameter Modelica.Units.SI.Frequency freqHzMax(min=0.0)
       "Maximum frequency of rising edges in true condition phase";
     Modelica.Blocks.Interfaces.RealOutput freqHz(final quantity="Frequency",final unit="Hz")
       "Check rising edge frequency in true condition phase, otherwise zero"
@@ -1045,9 +1045,9 @@ results in
   protected
     constant Real eps = 100*Modelica.Constants.eps
       "Small number to guard against division of zero";
-    discrete Modelica.SIunits.Time timeOfLastRising
+    discrete Modelica.Units.SI.Time timeOfLastRising
       "Time instance of last rising edge";
-    discrete Modelica.SIunits.Time T
+    discrete Modelica.Units.SI.Time T
       "Duration between actual time and last rising";
     Boolean computeFrequency
       "= true, if frequency can be computed at the next rising";

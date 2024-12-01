@@ -1,4 +1,4 @@
-﻿within Modelica_Requirements;
+within Modelica_Requirements;
 package ChecksInFixedWindow_withFFT
   "Library of check blocks that inspect properties in a fixed time window using FFT (Fast Fourier Transform)"
   extends Modelica.Icons.Package;
@@ -212,7 +212,7 @@ As can be seen, the first FFT fulfills the check (scaledDistance = 0), whereas t
     "A rising condition input triggers an FFT calculation. The amplitudes of the FFTs must be below a frequency dependent limit that is defined relative to the amplitude of the base frequency"
     extends Internal.PartialFFT;
 
-    parameter Modelica.SIunits.Frequency f_base
+    parameter Modelica.Units.SI.Frequency f_base
       "Base frequency (100 % amplitude = largest amplitude around f_base)";
     parameter Real searchInterval(min=0, max=100) = 5
       "Search interval [%] around base frequency f_base for real base frequency (with largest amplitude)"
@@ -220,7 +220,7 @@ As can be seen, the first FFT fulfills the check (scaledDistance = 0), whereas t
     parameter Real maxAmplitude[:,2]
       "Maximum allowed amplitude: Real[:,2] array with [frequency in Hz, amplitude[%]]";
 
-    discrete Modelica.SIunits.Frequency f_base2
+    discrete Modelica.Units.SI.Frequency f_base2
       "Real base frequency (frequency with largest amplitude around f_base)";
     discrete Real A_base2
       "Amplitude at the real base frequency (= largest amplitude around f_base)";
@@ -476,7 +476,7 @@ As can be seen, the first FFT fulfills the check (scaledDistance = 0), whereas t
     import Modelica_Requirements.Types.Property;
     extends Internal.PartialFFT(final f_max=n_harmonics*f_base);
 
-    parameter Modelica.SIunits.Frequency f_base
+    parameter Modelica.Units.SI.Frequency f_base
       "Base frequency (100 % amplitude = largest amplitude around f_base)";
     parameter Integer n_harmonics=5
       "Number of harmonics to treat for THD (f_max = n_harmonics*f_base; sampling frequency >= 10*f_max)";
@@ -485,7 +485,7 @@ As can be seen, the first FFT fulfills the check (scaledDistance = 0), whereas t
       "Search interval [%] around base frequency f_base for real base frequency (with largest amplitude)"
       annotation (Dialog(tab="Advanced"));
 
-    discrete Modelica.SIunits.Frequency f_base2
+    discrete Modelica.Units.SI.Frequency f_base2
       "Real base frequency (frequency with largest amplitude around f_base)";
     discrete Real A_base2
       "Amplitude at the real base frequency (= largest amplitude around f_base)";
@@ -758,9 +758,9 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
         parameter Boolean storeFFTonFile=true
         "= true, if FFT results shall be stored on file <modelName>/FFT.<instanceName>.<index>.mat"
                                                                                        annotation(Evaluate=true, choices(checkBox=true));
-        parameter Modelica.SIunits.Frequency  f_max
+      parameter Modelica.Units.SI.Frequency f_max
         "Maximum frequency of interest (sampling frequency >= 10*f_max)";
-        parameter Modelica.SIunits.Frequency  f_resolution
+      parameter Modelica.Units.SI.Frequency f_resolution
         "Frequency resolution (frequency axis points are an integer multiple of f_resolution)";
 
         Modelica.Blocks.Interfaces.BooleanInput condition
@@ -781,19 +781,19 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
 
         final parameter Integer ns = Internal.get_ns(f_max, f_resolution)
         "Number of FFT sample points (is even and can be expressed as ns = 2^i*3^j*5^k)";
-        final parameter Modelica.SIunits.Frequency f_max_FFT = f_resolution*div(ns, 2)
-        "Maximum frequency used by FFT";
+      final parameter Modelica.Units.SI.Frequency f_max_FFT=f_resolution*div(ns,
+          2) "Maximum frequency used by FFT";
         final parameter Integer nf = div(ns,2) + 1 "Number of frequency points";
-        final parameter Modelica.SIunits.Time Ts = 1/(2*f_max_FFT)
-        "Sample period";
-        final parameter Modelica.SIunits.Time T = (ns - 1)*Ts
+      final parameter Modelica.Units.SI.Time Ts=1/(2*f_max_FFT) "Sample period";
+      final parameter Modelica.Units.SI.Time T=(ns - 1)*Ts
         "Simulation time for one FFT calculation";
         Boolean periods_ok
         "= true, if all periods for FFT computations have been long enough";
 
         final parameter Integer np = max(1,min(integer(ceil(f_max/f_resolution))+1,nf))
         "Number of frequency points used for plotting (only up to interested frequency";
-        final parameter Modelica.SIunits.Frequency f_max_plot = (np-1)*f_resolution;
+      final parameter Modelica.Units.SI.Frequency f_max_plot=(np - 1)*
+          f_resolution;
         Integer fillColor[3] = if scaledDistance >= 0 then {245,245,245} else {255,218,213};
         final Real fA_plot[3*np,2](each start=0, each fixed=true)
         "[frequency, amplitude] matrix used for plotting in icon";
@@ -941,7 +941,7 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
       import Modelica_Requirements.Types.Property;
 
       input Real A[:] "Amplitudes";
-      input Modelica.SIunits.Frequency f_max "Frequency value of A[n]";
+      input Modelica.Units.SI.Frequency f_max "Frequency value of A[n]";
       input Real maxAmplitude[:,2] "Maximum amplitude";
       input Boolean periods_ok;
       output Modelica_Requirements.Types.Property property;
@@ -987,8 +987,8 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
     end checkDomain;
 
     function get_ns "Return number of sample points"
-       input Modelica.SIunits.Frequency f_max "Maximum frequency of interest";
-       input Modelica.SIunits.Frequency f_resolution "Frequency resolution";
+      input Modelica.Units.SI.Frequency f_max "Maximum frequency of interest";
+      input Modelica.Units.SI.Frequency f_resolution "Frequency resolution";
        input Integer f_max_factor(min=1)=5
         "Maximum FFT frequency >= f_max*f_max_factor (sample frequency = 2*Maximum FFT Frequency)";
        output Integer ns
@@ -1143,7 +1143,7 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
        input String filePrefix
         "First part of file name (= FFT.<instanceNamne>.)";
        input Integer fileIndex "Index of FFT computation";
-       input Modelica.SIunits.Frequency f_max "Maximum frequency";
+      input Modelica.Units.SI.Frequency f_max "Maximum frequency";
        input Real    A[:] "Amplitude";
        input Integer iTick;
     protected
@@ -1217,7 +1217,7 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
       input Real u_buf[:] "Signal for which FFT shall be computed; (size(u_buf,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(u_buf,1) = 2^a*3^b*5^c, with a,b,c Integer >= 0)";
       input Integer nf(min=1) "Number of frequency points that shall be returned in amplitudes and phases (typically: nf = max(1,min(integer(ceil(f_max/f_resolution))+1,nf_max))); the maximal possible value is nf_Max=div(size(u_buf,1),2)+1)";
       input Integer iTick "Number of sample points that have been stored in u_buf";
-      input Modelica.SIunits.Time Ts "Sample period of FFT";
+      input Modelica.Units.SI.Time Ts "Sample period of FFT";
       input Boolean pre_periods_ok "Previous value of periods_ok";
       input String instanceName="???";
       output Real A_buf[nf];
@@ -1227,9 +1227,9 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
       Integer ns = size(u_buf,1);
       Real u_buf2[size(u_buf,1)];
       Real u_DC;
-      Modelica.SIunits.Time T_req = (ns-1)*Ts
+      Modelica.Units.SI.Time T_req=(ns - 1)*Ts
         "Required period for FFT computation";
-      Modelica.SIunits.Time T_act = (iTick-1)*Ts
+      Modelica.Units.SI.Time T_act=(iTick - 1)*Ts
         "Actually used period for FFT computation";
       Integer info;
     algorithm
@@ -1402,17 +1402,17 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
     function findBaseFrequency
       "Find real base frequency (search around an interval of f_base for the largest amplitude"
       import Modelica.Utilities.Streams.print;
-      input Modelica.SIunits.Frequency f_resolution;
-      input Modelica.SIunits.Frequency f_base;
+      input Modelica.Units.SI.Frequency f_resolution;
+      input Modelica.Units.SI.Frequency f_base;
       input Real searchInterval "in [%] of f_base";
       input Real A_buf[:];
-      output Modelica.SIunits.Frequency f_baseReal;
+      output Modelica.Units.SI.Frequency f_baseReal;
       output Real A_baseReal;
       output Integer index_baseReal;
     protected
       Integer nf = size(A_buf,1);
-      Modelica.SIunits.Frequency f1;
-      Modelica.SIunits.Frequency f2;
+      Modelica.Units.SI.Frequency f1;
+      Modelica.Units.SI.Frequency f2;
       Integer i1;
       Integer i2;
       Integer j;
@@ -1499,8 +1499,8 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
 
     function baseAmplitudeForIcon
       "Determine amplitude line of base frequency for icon"
-      input Modelica.SIunits.Frequency f_baseReal;
-      input Modelica.SIunits.Frequency f_max_plot;
+      input Modelica.Units.SI.Frequency f_baseReal;
+      input Modelica.Units.SI.Frequency f_max_plot;
       input Real A_f_baseReal;
       input Real A_max_plot "Maximum amplitude in %";
       output Real line[2,2];

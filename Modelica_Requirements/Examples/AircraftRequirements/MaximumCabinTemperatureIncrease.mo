@@ -1,4 +1,4 @@
-﻿within Modelica_Requirements.Examples.AircraftRequirements;
+within Modelica_Requirements.Examples.AircraftRequirements;
 model MaximumCabinTemperatureIncrease
   "Requirement: The temperature increase of the cabin area is limited to ensure passenger comfort"
    extends Modelica.Icons.Example;

@@ -79,23 +79,26 @@ Simulate for 2000 s. When the valve is opened at time t=200, the pump starts tur
            extends Modelica.Icons.Package;
          record Tank "Observation variables from a tank"
            extends Modelica.Icons.Record;
-           Modelica.SIunits.Height level "Tank level" annotation(Dialog);
+          Modelica.Units.SI.Height level "Tank level" annotation (Dialog);
          end Tank;
 
          record Pump "Observation variables from a pump"
-            import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+            import NonSI = Modelica.Units.NonSI;
             extends Modelica.Icons.Record;
 
             NonSI.AngularVelocity_rpm speed "Pump speed";
-            Modelica.SIunits.AbsolutePressure p_port_a "Pressure at port_a" annotation(Dialog);
-            Modelica.SIunits.AbsolutePressure p_port_b "Pressure at port_b" annotation(Dialog);
+          Modelica.Units.SI.AbsolutePressure p_port_a "Pressure at port_a"
+            annotation (Dialog);
+          Modelica.Units.SI.AbsolutePressure p_port_b "Pressure at port_b"
+            annotation (Dialog);
          end Pump;
 
          record Source "Observation variables from a source component"
-            import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+            import NonSI = Modelica.Units.NonSI;
             extends Modelica.Icons.Record;
 
-            Modelica.SIunits.AbsolutePressure p[:] "Pressures at vector port" annotation(Dialog);
+          Modelica.Units.SI.AbsolutePressure p[:] "Pressures at vector port"
+            annotation (Dialog);
          end Source;
       end Records;
        extends Modelica.Icons.Package;
@@ -103,11 +106,12 @@ Simulate for 2000 s. When the valve is opened at time t=200, the pump starts tur
       block TankRequirements "Requirements for a Tank"
         extends Modelica_Requirements.Interfaces.PartialRequirements;
 
-        parameter Modelica.SIunits.Height levelMax=2.21 "Maximum allowed level";
-        parameter Modelica.SIunits.Height levelMin=1.8 "Minimum allowed level";
-        parameter Modelica.SIunits.Height limLevel=2.0
+        parameter Modelica.Units.SI.Height levelMax=2.21
+          "Maximum allowed level";
+        parameter Modelica.Units.SI.Height levelMin=1.8 "Minimum allowed level";
+        parameter Modelica.Units.SI.Height limLevel=2.0
           "Level cannot be lower as LimLevel for more as LimDuration";
-        parameter Modelica.SIunits.Time limDuration=300
+        parameter Modelica.Units.SI.Time limDuration=300
           "Maximum allowed duration for LimLevel";
 
         input Records.Tank observation
@@ -160,11 +164,11 @@ Simulate for 2000 s. When the valve is opened at time t=200, the pump starts tur
       end TankRequirements;
 
       block PumpRequirements "Requirements for one pump"
-        import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+        import NonSI = Modelica.Units.NonSI;
         extends Modelica_Requirements.Interfaces.PartialRequirements;
 
         parameter Real max_rpm(unit="rev/min") = 1000 "Maximum pump speed";
-        parameter Modelica.SIunits.Pressure p_min = 100 "Cavitation pressure";
+        parameter Modelica.Units.SI.Pressure p_min=100 "Cavitation pressure";
 
         input Records.Pump observation
           "Observation variables record from a pump" annotation (Dialog(group=
@@ -203,10 +207,10 @@ Simulate for 2000 s. When the valve is opened at time t=200, the pump starts tur
       end PumpRequirements;
 
       block SourceRequirements "Requirements for a Source component"
-        import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+        import NonSI = Modelica.Units.NonSI;
         extends Modelica_Requirements.Interfaces.PartialRequirements;
 
-        parameter Modelica.SIunits.Pressure p_min = 100 "Cavitation pressure";
+        parameter Modelica.Units.SI.Pressure p_min=100 "Cavitation pressure";
         input Records.Source observation
           "Observation variables record from a source" annotation (Dialog(group=
                "Observation variables"), Placement(transformation(extent={{-100,
@@ -240,13 +244,13 @@ Simulate for 2000 s. When the valve is opened at time t=200, the pump starts tur
           "Observation variables from a Modelica.Fluid.Interfaces.FluidPort component (only pressure p)"
             extends Modelica.Icons.Record;
 
-            Modelica.SIunits.AbsolutePressure p
+          Modelica.Units.SI.AbsolutePressure p
             "Thermodynamic pressure in the connection point";
          end FluidPort_p;
 
          record PrescribedPump
           "Observation variables from a Modelica.Fluid.Machines.PrescribedPump component"
-            import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+            import NonSI = Modelica.Units.NonSI;
             extends Modelica.Icons.Record;
 
             NonSI.AngularVelocity_rpm N_in "Pump speed";
@@ -256,7 +260,7 @@ Simulate for 2000 s. When the valve is opened at time t=200, the pump starts tur
 
          record PartialSource
           "Observation variables from a model derived from Modelica.Fluid.Sources.BaseClasses.PartialSource"
-            import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+            import NonSI = Modelica.Units.NonSI;
             extends Modelica.Icons.Record;
 
             // parameter Integer nPorts=0;

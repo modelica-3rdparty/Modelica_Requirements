@@ -89,7 +89,7 @@ needs some time until the approximation of the derivative is fine.
 
   block ApproximateDerivativeWithFilter
     "Output is the filtered derivative of the input (= approximate derivative)"
-    parameter Modelica.SIunits.Frequency f_cut "Cut-off frequency of filter";
+    parameter Modelica.Units.SI.Frequency f_cut "Cut-off frequency of filter";
     parameter Integer order=2 "Order of filter";
 
     Modelica.Blocks.Continuous.Filter filter(
@@ -246,7 +246,7 @@ needs some time until the approximation of the derivative is fine.
 
   block ApproximateDerivativeWithWindow
     "Output is the finite difference quotient of the input (= approximate derivative)"
-    parameter Modelica.SIunits.Time dt(min=10*Modelica.Constants.eps)
+    parameter Modelica.Units.SI.Time dt(min=10*Modelica.Constants.eps)
       "Time difference used for difference quotient";
     Modelica.Blocks.Interfaces.RealInput u
       "Real input signal (shall be differentiated)"

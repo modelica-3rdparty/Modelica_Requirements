@@ -13,7 +13,7 @@ pressure domain, more than 5s.")
 
   Modelica_Requirements.SignalAnalysis.ExactDerivative derP
     annotation (Placement(transformation(extent={{-36,60},{-16,80}})));
-  Modelica.Blocks.Sources.Clock clock
+  Modelica.Blocks.Sources.ContinuousClock clock
     annotation (Placement(transformation(extent={{-72,-3},{-60,9}})));
   Modelica_Requirements.ChecksInFixedWindow.MaxDuration maxDuration1(check=
         true, durationMax(displayUnit="s") = 5)
