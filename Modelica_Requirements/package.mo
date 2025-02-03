@@ -9,6 +9,16 @@ package UsersGuide "User's Guide"
 package ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
 
+  class Version_0_6_1 "Version 0.6.1 (Feb. 3, 2025)"
+  extends Modelica.Icons.ReleaseNotes;
+
+    annotation (Documentation(info="<html>
+<p>
+License changed to BSD 3-Clause license.
+</p>
+</html>"));
+  end Version_0_6_1;
+
   class Version_0_6 "Version 0.6 (April 19, 2016)"
   extends Modelica.Icons.ReleaseNotes;
 
@@ -47,7 +57,7 @@ class Contact "Contact"
 
 <ul>
 <li> The structuring and most operators/models of this library are based on
-     the informally defined <b>FORM-L</b> language by Nguyen Thuy from EDF. 
+     the informally defined <b>FORM-L</b> language by Nguyen Thuy from EDF.
      The backup-power-supply example is based on a description by
      Nguyen Thuy from EDF.</li>
 
@@ -62,20 +72,20 @@ class Contact "Contact"
 <li> The functions \"card\", \"forall\" and \"exists\" are based on a design
      by Hilding Elmqvist from Dassault Syst&egrave;mes Lund.</li>
 
-<li> The functions \"first\", \"last\", \"oneTrue\" 
+<li> The functions \"first\", \"last\", \"oneTrue\"
      and the blocks \"WhenFalling\", \"WhenChanging\" are from Andrea Tunis (UNICAL).</li>
 
 <li> Wladimir Schamai suggested to use a mix of 2- and 3-valued logic.</li>
 
 <li> Earlier versions of this library have been tested with Dymola, OpenModelica and SimulationX.</li>
 
-<li> Most of this library was developed within the ITEA2 project 
+<li> Most of this library was developed within the ITEA2 project
      <a href=\"https://www.modelica.org/external-projects/modrio\">MODRIO</a>. Partial financial support of
      the German BMBF, the French DGE, and the Swedish VINNOVA are highly appreciated.</li>
 
-<li> The FFT-based property blocks of this library 
-     (<a href=\"modelica://Modelica_Requirements.ChecksInFixedWindow_withFFT\">ChecksInFixedWindow_withFFT</a>) 
-     have been developed and implemented with help of partial funding in the European Union’s Seventh Framework Programme 
+<li> The FFT-based property blocks of this library
+     (<a href=\"modelica://Modelica_Requirements.ChecksInFixedWindow_withFFT\">ChecksInFixedWindow_withFFT</a>)
+     have been developed and implemented with help of partial funding in the European Union’s Seventh Framework Programme
      (FP7/2007-2016) for the Clean Sky Joint Technology Initiative under grant agreement no. CSJU-GAM-SGO-2008-001.
      This support is highly appreciated.</li>
 </ul>
@@ -106,12 +116,12 @@ Documentation(info="<html>
 Library <b>Modelica_Requirements</b> is a Modelica package
 to formally define requirements and checking them automatically
 when a model is simulated. An overview of this library is given in the publication
-<a href=\"modelica://Modelica_Requirements/Resources/Documentation/ecp15118625.pdf\">Formal Requirements Modeling for Simulation-Based Verification</a> 
+<a href=\"modelica://Modelica_Requirements/Resources/Documentation/ecp15118625.pdf\">Formal Requirements Modeling for Simulation-Based Verification</a>
 </p>
 
 <p>
 In order to define properties and requirements mostly a 2-valued logic is used.
-There are some functions and blocks based on 3-valued logic using type 
+There are some functions and blocks based on 3-valued logic using type
 <a href=\"modelica://Modelica_Requirements.Types.Property\">Property</a>, especially
 block <a href=\"modelica://Modelica_Requirements.Verify.Requirement\">Requirement</a>.
 Furthermore, there are cast-operators to map 2-valued to 3-valued logic and vice versa.
@@ -130,7 +140,7 @@ upper-case letters.
 <p>
 This package uses basically Modelica 3.2 language elements and requires at least version 3.2.2 of
 the Modelica Standard Library (some parts will not work with 3.2.1 or an earlier version).
-Additionally, the Modelica extension is used in some examples (but not outside of examples) to 
+Additionally, the Modelica extension is used in some examples (but not outside of examples) to
 pass a model instance as argument to a function (and the function argument is a record).
 This feature is used to associate requirements in a reasonably convenient way with
 behavioral models. This approach is currently under discussion at the Modelica Association.
@@ -155,7 +165,7 @@ The result of the requirement verification might then not be correct.
 <p>
 <b>This package is not yet finalized. A redesign is planned. The redesigned library (with improved implementations
 of models and new functionality) should be backwards compatible to this version, but
-it is not guaranteed. If non-backwards compatible changes are introduced, most likely 
+it is not guaranteed. If non-backwards compatible changes are introduced, most likely
 automatic conversions will not be provided.</b>.
 </p>
 
@@ -163,10 +173,10 @@ automatic conversions will not be provided.</b>.
 <i>This Modelica package is <u>free</u> software and
 the use is completely at <u>your own risk</u>;
 it can be redistributed and/or modified under the terms of the
-Modelica license 2, see the license conditions (including the
+3-Clause BSD license, see the license conditions (including the
 disclaimer of warranty) at
-<a href=\"https://www.Modelica.org/licenses/ModelicaLicense2\">
-https://www.Modelica.org/licenses/ModelicaLicense2</a>.</i>
+<a href=\"https://github.com/modelica-3rdparty/Modelica_Requirements/blob/master/LICENSE\">
+https://github.com/modelica-3rdparty/Modelica_Requirements/blob/master/LICENSE</a>.</i>
 </p>
 
 

@@ -450,7 +450,7 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
 
     Modelica.Blocks.Interfaces.BooleanInput condition
       "Boolean input condition signal"
-      annotation (Placement(transformation(extent={{-240,-19},{-200,21}})));
+      annotation (Placement(transformation(extent={{-240,-20},{-200,20}})));
     input Boolean check(start = false) "Boolean to check"
        annotation(Dialog);
     Modelica_Requirements.Interfaces.PropertyOutput y "Property output signal"
@@ -458,8 +458,7 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
     annotation (Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-200,-100},{200,100}},
-          grid={1,1}), graphics),
-                        Icon(coordinateSystem(
+          grid={1,1})), Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-200,-100},{200,100}},
           grid={1,1}), graphics={
