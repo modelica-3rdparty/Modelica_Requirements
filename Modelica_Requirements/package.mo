@@ -9,6 +9,16 @@ package UsersGuide "User's Guide"
 package ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
 
+  class Version_0_7_0 "Version 0.7.0 (Feb. 4, 2025)"
+  extends Modelica.Icons.ReleaseNotes;
+
+    annotation (Documentation(info="<html>
+<p>
+Updated implementation to Modelica 4.0.0.
+</p>
+</html>"));
+  end Version_0_7_0;
+
   class Version_0_6_1 "Version 0.6.1 (Feb. 3, 2025)"
   extends Modelica.Icons.ReleaseNotes;
 
@@ -137,8 +147,8 @@ upper-case letters.
 </p>
 
 <p>
-This package uses basically Modelica 3.2 language elements and requires at least version 3.2.2 of
-the Modelica Standard Library (some parts will not work with 3.2.1 or an earlier version).
+This package uses basically Modelica 4.0.0 language elements and requires at least version 4.0.0 of
+the Modelica Standard Library.
 Additionally, the Modelica extension is used in some examples (but not outside of examples) to
 pass a model instance as argument to a function (and the function argument is a record).
 This feature is used to associate requirements in a reasonably convenient way with
@@ -182,8 +192,6 @@ https://github.com/modelica-3rdparty/Modelica_Requirements/blob/master/LICENSE</
 <p>
 <b>Copyright &copy; 2014-2016, DLR, Dassault Aviation and UNICAL</b>
 </p>
-</html>"),
-  Icon(graphics),
-    conversion(from(version="0.6", script=
-            "modelica://Modelica_Requirements/Resources/ConvertFromModelica_Requirements_0.6.mos")));
+</html>")
+);
 end Modelica_Requirements;
