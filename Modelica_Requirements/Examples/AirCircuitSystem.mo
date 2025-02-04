@@ -110,14 +110,12 @@ package AirCircuitSystem
                 extent={{86,14},{96,-19}},
                 lineColor={0,0,0},
                 fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
-                visible=port_b_exposesState),
+                fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-22,14},{-12,-19}},
                 lineColor={0,0,0},
                 fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
-                visible=port_b_exposesState)}));
+                fillPattern=FillPattern.Solid)}));
       end PipeRequirements;
 
       block PipeNodeRequirements "Requirements for a a node of a pipe"
@@ -174,14 +172,13 @@ of a pipe shall be between
                 extent={{46,54},{56,21}},
                 lineColor={0,0,0},
                 fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
-                visible=port_b_exposesState),
+                fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-62,54},{-52,21}},
                 lineColor={0,0,0},
                 fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
-                visible=port_b_exposesState),   Line(
+                fillPattern=FillPattern.Solid),
+              Line(
                 points={{-18,-52},{0,-72},{12,-20}},
                 color={0,127,0},
                 smooth=Smooth.None,
