@@ -38,7 +38,17 @@ package ChecksInSlidingWindow
     end when;
 
     when change(check) then
-       buffer = SlidingWindow.push(pre(buffer), time, check);
+      buffer = SlidingWindow.push(
+        Modelica_Requirements.Internal.SlidingWindow.Buffer(
+          T=pre(buffer.T),
+          t0=pre(buffer.t0),
+          t=pre(buffer.t),
+          b=pre(buffer.b),
+          first=pre(buffer.first),
+          last=pre(buffer.last),
+          nElem=pre(buffer.nElem)),
+        time,
+        check);
     end when;
 
     maxDuration = SlidingWindow.maxDuration(buffer, time, check);
@@ -60,12 +70,12 @@ time duration where the Boolean input <b>check</b> was permanently true (= maxDu
 must be &ge; parameter <b>lowerLimit</b>.
 Whenever this property is fulfilled, Property output y = Satisfied.
 If this property is not fulfilled at the end of a sliding time window,
-y = Violated (exception: before the end of the first time window, 
+y = Violated (exception: before the end of the first time window,
 y = Undecided):
 </p>
 
 <blockquote><pre>
-y =  if maxDuration &ge; lowerLimit then Satisfied else 
+y =  if maxDuration &ge; lowerLimit then Satisfied else
     (if first then Undecided else Violated);
 </pre></blockquote>
 
@@ -151,7 +161,17 @@ results in
     end when;
 
     when change(check) then
-       buffer = SlidingWindow.push(pre(buffer), time, check);
+      buffer = SlidingWindow.push(
+        Modelica_Requirements.Internal.SlidingWindow.Buffer(
+          T=pre(buffer.T),
+          t0=pre(buffer.t0),
+          t=pre(buffer.t),
+          b=pre(buffer.b),
+          first=pre(buffer.first),
+          last=pre(buffer.last),
+          nElem=pre(buffer.nElem)),
+        time,
+        check);
     end when;
 
     accumulatedDuration = SlidingWindow.accumulatedDuration(buffer, time, check);
@@ -173,12 +193,12 @@ time duration where the Boolean input <b>check</b> was true (= accumulatedDurati
 must be &ge; parameter <b>lowerLimit</b>.
 Whenever this property is fulfilled, Property output y = Satisfied.
 If this property is not fulfilled at the end of a sliding time window,
-y = Violated (exception: before the end of the first time window, 
+y = Violated (exception: before the end of the first time window,
 y = Undecided):
 </p>
 
 <blockquote><pre>
-y =  if accumulatedDuration &ge; lowerLimit then Satisfied else 
+y =  if accumulatedDuration &ge; lowerLimit then Satisfied else
     (if first then Undecided else Violated);
 </pre></blockquote>
 
@@ -251,7 +271,17 @@ results in
     assert(lowerLimit < window, "lowerLimit < window required");
 
     when change(check) then
-       buffer = SlidingWindow.push(pre(buffer), time, check);
+      buffer = SlidingWindow.push(
+        Modelica_Requirements.Internal.SlidingWindow.Buffer(
+          T=pre(buffer.T),
+          t0=pre(buffer.t0),
+          t=pre(buffer.t),
+          b=pre(buffer.b),
+          first=pre(buffer.first),
+          last=pre(buffer.last),
+          nElem=pre(buffer.nElem)),
+        time,
+        check);
     end when;
 
     accumulatedDuration = SlidingWindow.accumulatedDuration(buffer, time, check);
@@ -276,7 +306,7 @@ y = false (even at the first window):
 </p>
 
 <blockquote><pre>
-y =  if accumulatedDuration &ge; lowerLimit then Satisfied else 
+y =  if accumulatedDuration &ge; lowerLimit then Satisfied else
     (if first then Undecided else Violated);
 </pre></blockquote>
 
@@ -348,7 +378,17 @@ results in
     assert(upperLimit < window, "upperLimit < window required");
 
     when change(check) then
-       buffer = SlidingWindow.push(pre(buffer), time, check);
+      buffer = SlidingWindow.push(
+        Modelica_Requirements.Internal.SlidingWindow.Buffer(
+          T=pre(buffer.T),
+          t0=pre(buffer.t0),
+          t=pre(buffer.t),
+          b=pre(buffer.b),
+          first=pre(buffer.first),
+          last=pre(buffer.last),
+          nElem=pre(buffer.nElem)),
+        time,
+        check);
     end when;
 
     maxDuration = SlidingWindow.maxDuration(buffer, time, check);
@@ -448,7 +488,17 @@ results in
     assert(upperLimit < window, "upperLimit < window required");
 
     when change(check) then
-       buffer = SlidingWindow.push(pre(buffer), time, check);
+      buffer = SlidingWindow.push(
+        Modelica_Requirements.Internal.SlidingWindow.Buffer(
+          T=pre(buffer.T),
+          t0=pre(buffer.t0),
+          t=pre(buffer.t),
+          b=pre(buffer.b),
+          first=pre(buffer.first),
+          last=pre(buffer.last),
+          nElem=pre(buffer.nElem)),
+        time,
+        check);
     end when;
 
     accumulatedDuration = SlidingWindow.accumulatedDuration(buffer, time, check);
@@ -563,7 +613,17 @@ results in
     end when;
 
     when change(check) then
-       buffer = SlidingWindow.push(pre(buffer), time, check);
+      buffer = SlidingWindow.push(
+        Modelica_Requirements.Internal.SlidingWindow.Buffer(
+          T=pre(buffer.T),
+          t0=pre(buffer.t0),
+          t=pre(buffer.t),
+          b=pre(buffer.b),
+          first=pre(buffer.first),
+          last=pre(buffer.last),
+          nElem=pre(buffer.nElem)),
+        time,
+        check);
     end when;
 
     maxDuration = SlidingWindow.maxDuration(buffer, time, check);
@@ -585,12 +645,12 @@ time duration where the Boolean input <b>check</b> was permanently true (= maxDu
 must be &ge; parameter <b>lowerLimit</b> and &le; parameter <b>upperLimit</b>.
 Whenever this property is fulfilled, Property output y = Satisfied.
 If this property is not fulfilled at the end of a sliding time window,
-y = Violated (exception: before the end of the first time window, 
+y = Violated (exception: before the end of the first time window,
 y = Undecided provided maxDuration &le; lowerLimit):
 </p>
 
 <blockquote><pre>
-y =  if maxDuration &ge; lowerLimit and maxDuration &le; upperLimit then Satisfied else 
+y =  if maxDuration &ge; lowerLimit and maxDuration &le; upperLimit then Satisfied else
     (if first and maxDuration &le; upperLimit then Undecided else Violated);
 </pre></blockquote>
 
@@ -677,7 +737,17 @@ results in
     end when;
 
     when change(check) then
-       buffer = SlidingWindow.push(pre(buffer), time, check);
+      buffer = SlidingWindow.push(
+        Modelica_Requirements.Internal.SlidingWindow.Buffer(
+          T=pre(buffer.T),
+          t0=pre(buffer.t0),
+          t=pre(buffer.t),
+          b=pre(buffer.b),
+          first=pre(buffer.first),
+          last=pre(buffer.last),
+          nElem=pre(buffer.nElem)),
+        time,
+        check);
     end when;
 
     accumulatedDuration = SlidingWindow.accumulatedDuration(buffer, time, check);
@@ -699,12 +769,12 @@ time duration where the Boolean input <b>check</b> was true (= accumulatedDurati
 must be &ge; parameter <b>lowerLimit</b> and &le; parameter <b>upperLimit</b>.
 Whenever this property is fulfilled, Property output y = Satisfied.
 If this property is not fulfilled at the end of a sliding time window,
-y = Violated (exception: before the end of the first time window, 
+y = Violated (exception: before the end of the first time window,
 y = Undecided provided maxDuration &le; lowerLimit):
 </p>
 
 <blockquote><pre>
-y =  if accumulatedDuration &ge; lowerLimit and accumulatedDuration &le; upperLimit then Satisfied else 
+y =  if accumulatedDuration &ge; lowerLimit and accumulatedDuration &le; upperLimit then Satisfied else
     (if first and accumulatedDuration &le; upperLimit then Undecided else Violated);
 </pre></blockquote>
 
@@ -795,8 +865,28 @@ results in
 
     checkRising = edge(check);
     when {checkRising, time >= pre(t_next)} then
-       buffer = if checkRising then SlidingWindow.push(pre(buffer),time) else
-                                    SlidingWindow.removeOldest(pre(buffer), time);
+       buffer = if checkRising then
+          SlidingWindow.push(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time)
+        else
+          SlidingWindow.removeOldest(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time);
        nRising = SlidingWindow.numberOfValues(buffer);
        t_next = SlidingWindow.nextLeaving(buffer, time);
        y = if nRising >= nRisingMin then Property.Satisfied else
@@ -817,12 +907,12 @@ or rising edges of the Boolean input <b>check</b> (= nRising)
 must be &ge; parameter <b>nRisingMin</b>.
 Whenever this property is fulfilled, Property output y = Satisfied.
 If this property is not fulfilled at the end of a sliding time window,
-Property output y = Violated (exception: before the end of the first time window, 
+Property output y = Violated (exception: before the end of the first time window,
 y = Undecided):
 </p>
 
 <blockquote><pre>
-y =  if nRising &ge; nRisingMin then Satisfied else 
+y =  if nRising &ge; nRisingMin then Satisfied else
     (if first then Undecided else Violated);
 </pre></blockquote>
 
@@ -900,8 +990,28 @@ results in
   equation
     checkRising = edge(check);
     when {checkRising, time >= pre(t_next)} then
-       buffer = if checkRising then SlidingWindow.push(pre(buffer),time) else
-                                    SlidingWindow.removeOldest(pre(buffer), time);
+       buffer = if checkRising then
+        SlidingWindow.push(
+          Modelica_Requirements.Internal.SlidingWindow.Buffer(
+            T=pre(buffer.T),
+            t0=pre(buffer.t0),
+            t=pre(buffer.t),
+            b=pre(buffer.b),
+            first=pre(buffer.first),
+            last=pre(buffer.last),
+            nElem=pre(buffer.nElem)),
+          time)
+        else
+        SlidingWindow.removeOldest(
+          Modelica_Requirements.Internal.SlidingWindow.Buffer(
+            T=pre(buffer.T),
+            t0=pre(buffer.t0),
+            t=pre(buffer.t),
+            b=pre(buffer.b),
+            first=pre(buffer.first),
+            last=pre(buffer.last),
+            nElem=pre(buffer.nElem)),
+          time);
        nRising = SlidingWindow.numberOfValues(buffer);
        t_next = SlidingWindow.nextLeaving(buffer, time);
        y = nRising <= nRisingMax;
@@ -1012,8 +1122,28 @@ results in
 
     checkRising = edge(check);
     when {checkRising, time >= pre(t_next)} then
-       buffer = if checkRising then SlidingWindow.push(pre(buffer),time) else
-                                    SlidingWindow.removeOldest(pre(buffer), time);
+       buffer = if checkRising then
+          SlidingWindow.push(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time)
+        else
+          SlidingWindow.removeOldest(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time);
        nRising = SlidingWindow.numberOfValues(buffer);
        t_next = SlidingWindow.nextLeaving(buffer, time);
        y = if nRising >= nRisingMin and nRising <= nRisingMax then Property.Satisfied else
@@ -1034,12 +1164,12 @@ or rising edges of the Boolean input <b>check</b> (= nRising)
 must be &ge; parameter <b>nRisingMin</b> and &le; parameter <b>nRisingMax</b>.
 Whenever this property is fulfilled, Property output y = Satisfied.
 If this property is not fulfilled at the end of a sliding time window,
-Property output y = Violated (exception: before the end of the first time window, 
+Property output y = Violated (exception: before the end of the first time window,
 y = Undecided provided nRising &le; nRisingMax):
 </p>
 
 <blockquote><pre>
-y =  if nRising &ge; nRisingMin and nRising &le; nRisingMax then Satisfied else 
+y =  if nRising &ge; nRisingMin and nRising &le; nRisingMax then Satisfied else
     (if first and nRising &le; nRisingMax then Undecided else Violated);
 </pre></blockquote>
 
@@ -1126,8 +1256,28 @@ results in
   equation
     checkChanging = change(check);
     when {checkChanging, time >= pre(t_next)} then
-       buffer = if checkChanging then SlidingWindow.push(pre(buffer),time) else
-                   SlidingWindow.removeOldest(pre(buffer), time);
+       buffer = if checkChanging then
+        SlidingWindow.push(
+          Modelica_Requirements.Internal.SlidingWindow.Buffer(
+            T=pre(buffer.T),
+            t0=pre(buffer.t0),
+            t=pre(buffer.t),
+            b=pre(buffer.b),
+            first=pre(buffer.first),
+            last=pre(buffer.last),
+            nElem=pre(buffer.nElem)),
+          time)
+        else
+          SlidingWindow.removeOldest(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time);
        nCrossing = SlidingWindow.numberOfValues(buffer);
        freqHzMean = meanFrequency(nCrossing, window);
        t_next = SlidingWindow.nextLeaving(buffer, time);
@@ -1145,7 +1295,7 @@ freqLimited = <b>MaxFrequency</b>(check=..., window=..., freqHzMeanMax=...).y;
 
 <p>
 In any (sliding) time window of length <b>window</b>,
-the mean frequency of the Boolean input <b>check</b> 
+the mean frequency of the Boolean input <b>check</b>
 is limited by <b>freqHzMeanMax</b>. With T the time period for
 a rising, falling and rising edge of check, the frequency is defined
 as freqHz = 1/T. Therefore, in any sliding window the
@@ -1164,9 +1314,9 @@ freqHzMean &le; freqHzMax
 
 <p>
 where nCrossing is the number of crossing edges of check in the last time window
-of length window. The mean frequency over the sliding time window 
+of length window. The mean frequency over the sliding time window
 is also provided as additional output
-signal <b>freqHzMean</b>. 
+signal <b>freqHzMean</b>.
 If the mean frequency is not larger as freqHzMeanMax, output
 <b>y</b> is set to true, otherwise to y = false.
 </p>
@@ -1268,8 +1418,28 @@ rising edges of check into account.
   equation
     checkRising = edge(check);
     when {checkRising, time >= pre(t_next)} then
-       buffer = if checkRising then SlidingWindow.push(pre(buffer),time) else
-                   SlidingWindow.removeOldest(pre(buffer), time);
+       buffer = if checkRising then
+          SlidingWindow.push(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time)
+        else
+          SlidingWindow.removeOldest(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time);
        nRising = SlidingWindow.numberOfValues(buffer);
        freqHzMean = meanFrequency(nRising, window);
        t_next = SlidingWindow.nextLeaving(buffer, time);
@@ -1287,7 +1457,7 @@ freqLimited = <b>MaxRisingFrequency</b>(check=..., window=..., freqHzMeanMax=...
 
 <p>
 In any (sliding) time window of length <b>window</b>,
-the mean frequency of the rising edges of Boolean input <b>check</b> 
+the mean frequency of the rising edges of Boolean input <b>check</b>
 is limited by <b>freqHzMeanMax</b>. Therefore, in any sliding window the
 following constraint shall hold:
 </p>
@@ -1304,9 +1474,9 @@ freqHzMean &le; freqHzMax
 
 <p>
 where nRising is the number of rising edges of check in the last time window
-of length window. The mean frequency over the sliding time window 
+of length window. The mean frequency over the sliding time window
 is also provided as additional output
-signal <b>freqHzMean</b>. 
+signal <b>freqHzMean</b>.
 If the mean frequency is not larger as freqHzMeanMax, output
 <b>y</b> is set to true, otherwise to y = false.
 </p>
@@ -1467,7 +1637,7 @@ otherwise y = false:
 <p>
 Hereby it is assumed that u(t-window) = u(t<sub>0</sub>) for
 t<sub>0</sub> &le; t &lt; t<sub>0</sub> + window, where t<sub>0</sub> is the
-start time of the simulation. 
+start time of the simulation.
 </p>
 
 <h4>Example</h4>
@@ -1676,7 +1846,7 @@ All blocks of this library have the following interface:
 <li> Real input <b>window</b> is the length of the sliding time window in seconds.
      A check is performed conceptually in every interval [time-window, time].</li>
 
-<li> Property output <b>y</b> is of enumeration type 
+<li> Property output <b>y</b> is of enumeration type
      <a href=\"modelica://Modelica_Requirements.Types.Property\">Property</a>.
      If the check is successful, y = Property.Satisfied. If the check fails,
      y = Property.Violated. If neither of the two properties hold
