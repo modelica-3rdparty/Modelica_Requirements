@@ -499,7 +499,7 @@ results in
 <h4>Description</h4>
 <p>
 If condition is true, the function returns check (which must be of type
-<a href=\"Modelica_Requirements.Types.Property\">Property</a>). Otherwise, it returns Undecided.
+<a href=\"modelica://Modelica_Requirements.Types.Property\">Property</a>). Otherwise, it returns Undecided.
 </p>
 
 <h4>Example</h4>

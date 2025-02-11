@@ -102,7 +102,7 @@ the maximum amplitude Ai at frequency point fi in [Hz]. fi &ge; 0 required). The
 
 <p>
 For more details, see the description of package
-<a href=\"Modelica_Requirements.ChecksInFixedWindow_withFFT\">ChecksInFixedWindow_withFFT</a>.
+<a href=\"modelica://Modelica_Requirements.ChecksInFixedWindow_withFFT\">ChecksInFixedWindow_withFFT</a>.
 </p>
 
 
@@ -142,7 +142,7 @@ Simulating this examples results in
 
 <p>
 As can be seen, the simulation is terminate (via instance <b>terminate1</b> of block 
-<a href=\"Modelica_Requirements.LogicalBlocks.FallingEdgeTerminate\">FallingEdgeTerminate</a>) once
+<a href=\"modelica://Modelica_Requirements.LogicalBlocks.FallingEdgeTerminate\">FallingEdgeTerminate</a>) once
 the FFT has been computed (signaled via the falling edge of FFT_computation).
 Since all FFT amplitudes between 0 &le; f &le; min(f_max, maxAmplitude[end,1]) are below the maximally allowed limit,
 the block returns Property.Satisfied.
@@ -364,7 +364,7 @@ interpolated for this check.
 
 <p>
 For more details, see the description of package
-<a href=\"Modelica_Requirements.ChecksInFixedWindow_withFFT\">ChecksInFixedWindow_withFFT</a>.
+<a href=\"modelica://Modelica_Requirements.ChecksInFixedWindow_withFFT\">ChecksInFixedWindow_withFFT</a>.
 </p>
 
 
@@ -405,7 +405,7 @@ Simulating this examples results in
 
 <p>
 As can be seen, the simulation is terminate (via instance <b>terminate1</b> of block 
-<a href=\"Modelica_Requirements.LogicalBlocks.FallingEdgeTerminate\">FallingEdgeTerminate</a>) once
+<a href=\"modelica://Modelica_Requirements.LogicalBlocks.FallingEdgeTerminate\">FallingEdgeTerminate</a>) once
 the FFT has been computed (signaled via the falling edge of FFT_computation).
 Since all FFT amplitudes between 0 &le; f &le; min(f_max, maxAmplitude[end,1]) are below the maximally allowed limit,
 the block returns Property.Satisfied.
@@ -650,7 +650,7 @@ where <b>THDmax</b> is the maximum allowed THD value. The default value is 0.1 (
 
 <p>
 For more details, see the description of package
-<a href=\"Modelica_Requirements.ChecksInFixedWindow_withFFT\">ChecksInFixedWindow_withFFT</a>.
+<a href=\"modelica://Modelica_Requirements.ChecksInFixedWindow_withFFT\">ChecksInFixedWindow_withFFT</a>.
 </p>
 
 

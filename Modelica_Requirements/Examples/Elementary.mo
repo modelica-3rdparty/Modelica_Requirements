@@ -1125,7 +1125,7 @@ Simulating this examples results in
 
 <p>
 As can be seen, the simulation is terminate (via instance <b>terminate1</b> of block 
-<a href=\"Modelica_Requirements.LogicalBlocks.FallingEdgeTerminate\">FallingEdgeTerminate</a>) once
+<a href=\"modelica://Modelica_Requirements.LogicalBlocks.FallingEdgeTerminate\">FallingEdgeTerminate</a>) once
 the FFT has been computed (signaled via the falling edge of FFT_computation).
 Since all FFT amplitudes between 0 &le; f &le; min(f_max, maxAmplitude[end,1]) are below the maximally allowed limit,
 the block returns Property.Satisfied.
@@ -1323,7 +1323,7 @@ Simulating this examples results in
 
 <p>
 As can be seen, the simulation is terminate (via instance <b>terminate1</b> of block 
-<a href=\"Modelica_Requirements.LogicalBlocks.FallingEdgeTerminate\">FallingEdgeTerminate</a>) once
+<a href=\"modelica://Modelica_Requirements.LogicalBlocks.FallingEdgeTerminate\">FallingEdgeTerminate</a>) once
 the FFT has been computed (signaled via the falling edge of FFT_computation).
 Since all FFT amplitudes between 0 &le; f &le; min(f_max, maxAmplitude[end,1]) are below the maximally allowed limit,
 the block returns Property.Satisfied.

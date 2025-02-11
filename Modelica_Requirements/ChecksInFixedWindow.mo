@@ -1213,7 +1213,7 @@ property = <b>WhenRising</b>(condition=..., check=...).y;
 
 <p>
 At the time instants where condition has a rising edge, property is set to 
-\"<a href=\"Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
+\"<a href=\"modelica://Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
 and keeps this value until the next rising edge. Before the first rising edge,
 property = Undecided. If condition = true during initialization, property = toProperty(check)
 at initialization. 
@@ -1301,7 +1301,7 @@ property = <b>WhenFalling</b>(condition=..., check=...).y;
 
 <p>
 At the time instants where condition has a falling edge, property is set to 
-\"<a href=\"Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
+\"<a href=\"modelica://Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
 and keeps this value until the next falling edge. Before the first falling edge,
 property = Undecided. If condition = false during initialization, property = toProperty(check)
 at initialization. 
@@ -1389,7 +1389,7 @@ property = <b>WhenChanging</b>(condition=..., check=...).y;
 
 <p>
 At the time instants where condition has a changing edge, property is set to 
-\"<a href=\"Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
+\"<a href=\"modelica://Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
 and keeps this value until the next changing edge. At initialization, property = Undecided, independently of the value of condition. 
 </p>
 
