@@ -15,7 +15,7 @@ package ChecksInFixedWindow_withFFT
       "[frequency, amplitude] matrix used for plotting in icon";
 
   equation
-    when {iTick == ns, terminal() and time <= nextTime} then
+    when {iTick == ns, terminal() and time < nextTime} then
        fA_plot             = Internal.amplitudeFrequencyCurveForIcon(A_buf,A_max_plot);
        (y, scaledDistance) = Internal.checkDomain(A_buf, f_max_plot, maxAmplitude, periods_ok);
     end when;
@@ -238,7 +238,7 @@ As can be seen, the first FFT fulfills the check (scaledDistance = 0), whereas t
     maxAmplitude2 = zeros(size(maxAmplitude,1),2);
     maxAmplitudePlot = zeros(size(maxAmplitude,1),2);
   equation
-    when {iTick == ns, terminal() and time <= nextTime} then
+    when {iTick == ns, terminal() and time < nextTime} then
        (f_base2, A_base2)  = Internal.findBaseFrequency(f_resolution, f_base, searchInterval, A_buf);
        maxAmplitude2       = [maxAmplitude[:,1],maxAmplitude[:,2]*(A_base2/100)];
        A_max_plot          = max(maxAmplitude2[:,2]) + 0.1*A_base2;
@@ -501,7 +501,7 @@ As can be seen, the first FFT fulfills the check (scaledDistance = 0), whereas t
     THD = 0;
     f_base2_line = {{0,0},{0,0}};
   equation
-    when {iTick == ns, terminal() and time <= nextTime} then
+    when {iTick == ns, terminal() and time < nextTime} then
        (f_base2, A_base2, index_base2) = Internal.findBaseFrequency(f_resolution, f_base, searchInterval, A_buf);
        A_max_plot     = max(A_buf);
        f_base2_line   = Internal.baseAmplitudeForIcon(f_base2, f_max_plot, A_base2, A_max_plot);
@@ -797,7 +797,7 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
         Integer fillColor[3] = if scaledDistance >= 0 then {245,245,245} else {255,218,213};
         final Real fA_plot[3*np,2](each start=0, each fixed=true)
         "[frequency, amplitude] matrix used for plotting in icon";
-    protected
+      protected
         constant String instanceName =    getInstanceName();
         constant String resultDirectory = Modelica_Requirements.Internal.getFirstName(instanceName);
         constant String filePrefix =      "FFT." + Modelica_Requirements.Internal.removeFirstName(instanceName) + ".";
@@ -839,7 +839,7 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
         // After the value of u is stored at the last sample point or when
         // the simulation is terminated and one or more u-values already stored,
         // perform an FFT computation
-        when {iTick == ns, terminal() and time <= nextTime} then
+        when {iTick == ns, terminal() and time < nextTime} then
            (A_buf, periods_ok) = Internal.fftScaled(u_buf, np, iTick, Ts, pre(periods_ok), instanceName);
            fileIndex           = pre(fileIndex) + 1;
            if storeFFTonFile and iTick > 1 then
