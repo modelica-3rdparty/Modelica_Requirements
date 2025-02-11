@@ -712,12 +712,12 @@ results in
       Modelica_Requirements.ChecksInFixedWindow.MaxRisingFrequency maxFrequency1(
           freqHzMax=3, check=crossing.y)
                        annotation (Placement(transformation(extent={{-40,40},{0,60}})));
-      Modelica_Requirements.Sources.RealExpression expr1(y=sin(2*pi*(if time <= 5
-             then 2 elseif time <= 10 then 4 elseif time <= 15 then 2 else 0)*time))
+      Modelica_Requirements.Sources.RealExpression expr1(y=sin(2*pi*(if time < 5
+             then 2 elseif time < 10 then 4 elseif time < 15 then 2 else 0)*time))
         annotation (Placement(transformation(extent={{-92,10},{16,30}})));
     equation
       connect(condition.y, maxFrequency1.condition)
-        annotation (Line(points={{-59,50},{-42,50},{-42,50.1}}, color={255,0,255}));
+        annotation (Line(points={{-59,50},{-42,50},{-42,50}},   color={255,0,255}));
       connect(expr1.y, crossing.u)
         annotation (Line(points={{18.7,20},{26,20},{34,20}},
                                                            color={0,0,127}));
@@ -2070,9 +2070,8 @@ results in
         freqHzMeanMax=3,
         window=2)
         annotation (Placement(transformation(extent={{-60,40},{-20,60}})));
-      Modelica_Requirements.Sources.RealExpression expr1(y=sin(2*pi*(if time
-             <= 5 then 2 elseif time <= 10 then 4 elseif time <= 15 then 2
-             else 0)*time))
+      Modelica_Requirements.Sources.RealExpression expr1(
+        y=sin(2*pi*(if time < 5 then 2 elseif time < 10 then 4 elseif time < 15 then 2 else 0)*time))
         annotation (Placement(transformation(extent={{-88,10},{20,30}})));
     equation
       connect(expr1.y, crossing.u)
@@ -2124,9 +2123,8 @@ more precise as using the <a href=\"modelica://Modelica_Requirements.Examples.El
         freqHzMeanMax=3,
         window=2)
         annotation (Placement(transformation(extent={{-60,40},{-20,60}})));
-      Modelica_Requirements.Sources.RealExpression expr1(y=sin(2*pi*(if time
-             <= 5 then 2 elseif time <= 10 then 4 elseif time <= 15 then 2
-             else 0)*time))
+      Modelica_Requirements.Sources.RealExpression expr1(
+        y=sin(2*pi*(if time < 5 then 2 elseif time < 10 then 4 elseif time < 15 then 2 else 0)*time))
         annotation (Placement(transformation(extent={{-88,10},{20,30}})));
     equation
       connect(expr1.y, crossing.u)
@@ -2922,7 +2920,7 @@ results in
         annotation (Placement(transformation(extent={{-60,-20},{-20,0}})));
       Modelica_Requirements.Sources.IntegerExpression expr2(y=integer(time))
         annotation (Placement(transformation(extent={{-60,-40},{-20,-20}})));
-      Modelica_Requirements.Sources.BooleanExpression expr3(y=time > 1 and time < 3)
+      Modelica_Requirements.Sources.BooleanExpression expr3(y=time >= 1 and time < 3)
         annotation (Placement(transformation(extent={{-60,-60},{-20,-40}})));
       Modelica_Requirements.Sources.RealConstant const1(c=1.234)
         annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
