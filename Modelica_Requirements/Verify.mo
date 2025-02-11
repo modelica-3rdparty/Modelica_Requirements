@@ -236,7 +236,7 @@ Requirement R_Satisfied(property = during(check, check));
                                                       graphics),
       Documentation(info="<html><p>
 This block is used to verify a requirement. The Boolean input signal \"property\" shall always be true.
-This signal is mapped to a 3-valued logic <a href=\"Modelica_Requirements.Types.Property\">Property</a>
+This signal is mapped to a 3-valued logic <a href=\"modelica://Modelica_Requirements.Types.Property\">Property</a>
 (= Property.Satisfied if true and Property.Violated if false).
 </p>
 
