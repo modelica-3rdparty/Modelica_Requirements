@@ -865,8 +865,28 @@ results in
 
     checkRising = edge(check);
     when {checkRising, time >= pre(t_next)} then
-       buffer = if checkRising then SlidingWindow.push(pre(buffer),time) else
-                                    SlidingWindow.removeOldest(pre(buffer), time);
+       buffer = if checkRising then
+          SlidingWindow.push(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time)
+        else
+          SlidingWindow.removeOldest(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time);
        nRising = SlidingWindow.numberOfValues(buffer);
        t_next = SlidingWindow.nextLeaving(buffer, time);
        y = if nRising >= nRisingMin then Property.Satisfied else
@@ -970,8 +990,28 @@ results in
   equation
     checkRising = edge(check);
     when {checkRising, time >= pre(t_next)} then
-       buffer = if checkRising then SlidingWindow.push(pre(buffer),time) else
-                                    SlidingWindow.removeOldest(pre(buffer), time);
+       buffer = if checkRising then
+        SlidingWindow.push(
+          Modelica_Requirements.Internal.SlidingWindow.Buffer(
+            T=pre(buffer.T),
+            t0=pre(buffer.t0),
+            t=pre(buffer.t),
+            b=pre(buffer.b),
+            first=pre(buffer.first),
+            last=pre(buffer.last),
+            nElem=pre(buffer.nElem)),
+          time)
+        else
+        SlidingWindow.removeOldest(
+          Modelica_Requirements.Internal.SlidingWindow.Buffer(
+            T=pre(buffer.T),
+            t0=pre(buffer.t0),
+            t=pre(buffer.t),
+            b=pre(buffer.b),
+            first=pre(buffer.first),
+            last=pre(buffer.last),
+            nElem=pre(buffer.nElem)),
+          time);
        nRising = SlidingWindow.numberOfValues(buffer);
        t_next = SlidingWindow.nextLeaving(buffer, time);
        y = nRising <= nRisingMax;
@@ -1082,8 +1122,28 @@ results in
 
     checkRising = edge(check);
     when {checkRising, time >= pre(t_next)} then
-       buffer = if checkRising then SlidingWindow.push(pre(buffer),time) else
-                                    SlidingWindow.removeOldest(pre(buffer), time);
+       buffer = if checkRising then
+          SlidingWindow.push(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time)
+        else
+          SlidingWindow.removeOldest(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time);
        nRising = SlidingWindow.numberOfValues(buffer);
        t_next = SlidingWindow.nextLeaving(buffer, time);
        y = if nRising >= nRisingMin and nRising <= nRisingMax then Property.Satisfied else
@@ -1196,8 +1256,28 @@ results in
   equation
     checkChanging = change(check);
     when {checkChanging, time >= pre(t_next)} then
-       buffer = if checkChanging then SlidingWindow.push(pre(buffer),time) else
-                   SlidingWindow.removeOldest(pre(buffer), time);
+       buffer = if checkChanging then
+        SlidingWindow.push(
+          Modelica_Requirements.Internal.SlidingWindow.Buffer(
+            T=pre(buffer.T),
+            t0=pre(buffer.t0),
+            t=pre(buffer.t),
+            b=pre(buffer.b),
+            first=pre(buffer.first),
+            last=pre(buffer.last),
+            nElem=pre(buffer.nElem)),
+          time)
+        else
+          SlidingWindow.removeOldest(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time);
        nCrossing = SlidingWindow.numberOfValues(buffer);
        freqHzMean = meanFrequency(nCrossing, window);
        t_next = SlidingWindow.nextLeaving(buffer, time);
@@ -1338,8 +1418,28 @@ rising edges of check into account.
   equation
     checkRising = edge(check);
     when {checkRising, time >= pre(t_next)} then
-       buffer = if checkRising then SlidingWindow.push(pre(buffer),time) else
-                   SlidingWindow.removeOldest(pre(buffer), time);
+       buffer = if checkRising then
+          SlidingWindow.push(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time)
+        else
+          SlidingWindow.removeOldest(
+            Modelica_Requirements.Internal.SlidingWindow.Buffer(
+              T=pre(buffer.T),
+              t0=pre(buffer.t0),
+              t=pre(buffer.t),
+              b=pre(buffer.b),
+              first=pre(buffer.first),
+              last=pre(buffer.last),
+              nElem=pre(buffer.nElem)),
+            time);
        nRising = SlidingWindow.numberOfValues(buffer);
        freqHzMean = meanFrequency(nRising, window);
        t_next = SlidingWindow.nextLeaving(buffer, time);
