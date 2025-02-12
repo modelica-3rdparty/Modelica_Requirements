@@ -1565,7 +1565,7 @@ results in
             fillColor=DynamicSelect({245,245,245},fillColor),
             fillPattern=FillPattern.Solid),
           Line(points=DynamicSelect({{0,0},{-140,0}}, line1),
-               lineColor=DynamicSelect({0,127,0},varColor)),
+               color=DynamicSelect({0,127,0},varColor)),
           Ellipse(
             extent=DynamicSelect({{-10,10},{10,-10}}, circle1),
             fillPattern=FillPattern.Solid,
@@ -1578,7 +1578,7 @@ results in
             fillColor={135,135,135}),
           Text(
             extent={{-250,210},{250,250}},
-            lineColor={175,175,175},
+            textColor={175,175,175},
             textString="%name")}), Diagram(coordinateSystem(preserveAspectRatio=false,
             extent={{-200,-200},{200,200}}), graphics),
       Documentation(info="<html>
