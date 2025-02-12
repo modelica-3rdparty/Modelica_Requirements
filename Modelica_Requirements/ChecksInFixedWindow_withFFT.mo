@@ -36,35 +36,35 @@ package ChecksInFixedWindow_withFFT
             points=DynamicSelect({{-260,140},{260,140}},maxAmplitudePlot), color={255,0,0}),
           Text(
             extent={{-252,-215},{-22,-245}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             horizontalAlignment=TextAlignment.Left,
             textString="0 Hz"),
           Text(
             extent={{50,-215},{280,-245}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             horizontalAlignment=TextAlignment.Right,
             textString=DynamicSelect("???", String(f_max_plot)) + " Hz"),
           Text(
             extent={{-240,185},{-15,155}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             horizontalAlignment=TextAlignment.Left,
             textString=DynamicSelect("???", String(A_max_plot))),
           Text(
             extent={{50,185},{280,155}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             horizontalAlignment=TextAlignment.Right,
             textString=DynamicSelect("???", String(time)) + " s"),
           Text(
             extent={{-290,288},{-100,263}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="f_max"),
           Text(
             extent={{-290,243},{-100,213}},
-            lineColor={0,0,0},
+            textColor={0,0,0},
             textString="%f_max Hz"),
           Text(
             extent={{-90,288},{100,263}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="f_resolution"),
           Rectangle(
             extent={{-90,258},{100,208}},
@@ -75,7 +75,7 @@ package ChecksInFixedWindow_withFFT
             borderPattern=BorderPattern.Sunken),
           Text(
             extent={{-90,243},{100,213}},
-            lineColor={0,0,0},
+            textColor={0,0,0},
             fillColor={255,0,0},
             fillPattern=FillPattern.Solid,
             textString="%f_resolution Hz")}),
