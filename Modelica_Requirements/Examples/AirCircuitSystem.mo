@@ -197,6 +197,7 @@ of a pipe shall be between
 
       function PipeObservation_from_DynamicPipe
         "Map DynamicPipe variables to Pipe observations record"
+        extends Modelica.Icons.Function;
         import  Modelica_Requirements.Examples.AirCircuitSystem.Components.*;
         input Requirements.Records.MediumVector dynamicPipe
           "Observation variables from a DynamicPipe";
