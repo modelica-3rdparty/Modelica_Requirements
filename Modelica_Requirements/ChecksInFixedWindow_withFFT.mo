@@ -1137,7 +1137,7 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
 </html>"));
     end maxAmplitudeCurveForIcon;
 
-    function saveFFTonFile "Save FFT computation on file"
+    impure function saveFFTonFile "Save FFT computation on file"
        import Modelica.Utilities.Streams.print;
        input String resultDirectory "Directory where results shall be stored";
        input String filePrefix
@@ -1211,7 +1211,7 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
 </html>"));
     end set_u;
 
-    function fftScaled "Compute scaled FFT"
+    impure function fftScaled "Compute scaled FFT"
       import Modelica.Utilities.Streams.print;
 
       input Real u_buf[:] "Signal for which FFT shall be computed; (size(u_buf,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(u_buf,1) = 2^a*3^b*5^c, with a,b,c Integer >= 0)";
@@ -1275,7 +1275,7 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
 </html>"));
     end fftScaled;
 
-    function removeFFTresultFiles
+    impure function removeFFTresultFiles
       "Remove FFT results files of previous simulation runs of the current model (if they exist)"
       import Modelica.Utilities.Internal.FileSystem;
       import Modelica.Utilities.Strings;
@@ -1284,7 +1284,7 @@ As can be seen, the first FFT fulfills the check (THD &lt; THDmax), whereas the 
       input String resultDirectory
         "Existing directory where the results are stored";
     protected
-      function removeFFTresultFiles2
+      impure function removeFFTresultFiles2
          input String directory
           "Existing directory where the results are stored";
       protected
