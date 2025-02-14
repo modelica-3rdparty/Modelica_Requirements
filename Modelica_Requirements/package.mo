@@ -9,7 +9,7 @@ package UsersGuide "User's Guide"
 package ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
 
-  class Version_0_7_0 "Version 0.7.0 (Feb. 4, 2025)"
+  class Version_0_7_0 "Version 0.7.0 (Feb. 13, 2025)"
   extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<html>
@@ -113,12 +113,11 @@ is simulated.
 </html>"));
 end UsersGuide;
 
-
   annotation (preferredView="info",
   uses(Modelica(version="4.0.0")),
 version="0.7",
-versionDate="2016-06-21",
-dateModified = "2016-06-21 08:44:41Z",
+versionDate="2025-02-13",
+dateModified = "2025-02-13",
 revisionId="$Id:: package.mo 9390 2016-06-21 06:35:11Z #$",
 Documentation(info="<html>
 <p>
@@ -147,7 +146,7 @@ upper-case letters.
 </p>
 
 <p>
-This package uses basically Modelica 4.0.0 language elements and requires at least version 4.0.0 of
+This package uses basically Modelica 3.6 language elements and requires at least version 4.0.0 of
 the Modelica Standard Library.
 Additionally, the Modelica extension is used in some examples (but not outside of examples) to
 pass a model instance as argument to a function (and the function argument is a record).
@@ -192,6 +191,5 @@ https://github.com/modelica-3rdparty/Modelica_Requirements/blob/master/LICENSE</
 <p>
 <b>Copyright &copy; 2014-2016, DLR, Dassault Aviation and UNICAL</b>
 </p>
-</html>")
-);
+</html>"));
 end Modelica_Requirements;
