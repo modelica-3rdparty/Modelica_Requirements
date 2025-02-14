@@ -365,7 +365,8 @@ oneTrueElement = oneTrue( b )<br>
      input Boolean u "Boolean to be mapped to Property";
     output Modelica_Requirements.Types.Property y "Boolean as Property";
   algorithm
-     y :=if u then Property.Satisfied else Property.Violated
+     y :=if u then Property.Satisfied else Property.Violated;
+
     annotation (Inline=true, Documentation(info="<html>
 
 <h4>Syntax</h4>
