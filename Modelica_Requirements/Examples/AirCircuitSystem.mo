@@ -1,4 +1,4 @@
-﻿within Modelica_Requirements.Examples;
+within Modelica_Requirements.Examples;
 package AirCircuitSystem
   "Simple air circuit example system to demonstrate requirements definition, binding and checking"
   extends Modelica.Icons.ExamplesPackage;
@@ -68,8 +68,9 @@ package AirCircuitSystem
 
         record Medium "Observation variables from a medium"
           extends Modelica.Icons.Record;
-          Modelica.SIunits.Pressure p "Medium pressure" annotation(Dialog);
-          Modelica.SIunits.Temperature T "Medium temperature" annotation(Dialog);
+          Modelica.Units.SI.Pressure p "Medium pressure" annotation (Dialog);
+          Modelica.Units.SI.Temperature T "Medium temperature"
+            annotation (Dialog);
         end Medium;
 
         record MediumVector
@@ -82,11 +83,11 @@ package AirCircuitSystem
       block PipeRequirements "Requirements for a Pipe"
          extends Modelica_Requirements.Interfaces.PartialRequirements;
 
-         parameter Modelica.SIunits.Pressure pMax= 1e5
+        parameter Modelica.Units.SI.Pressure pMax=1e5
           "Maximal allowed pressure";
-         parameter Modelica.SIunits.Temperature Tmin = 255
+        parameter Modelica.Units.SI.Temperature Tmin=255
           "Minimum pipe temperature";
-         parameter Modelica.SIunits.Temperature Tmax = 300
+        parameter Modelica.Units.SI.Temperature Tmax=300
           "Maximum pipe temperature";
 
         input Records.MediumVector observation
@@ -109,23 +110,21 @@ package AirCircuitSystem
                 extent={{86,14},{96,-19}},
                 lineColor={0,0,0},
                 fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
-                visible=port_b_exposesState),
+                fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-22,14},{-12,-19}},
                 lineColor={0,0,0},
                 fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
-                visible=port_b_exposesState)}));
+                fillPattern=FillPattern.Solid)}));
       end PipeRequirements;
 
       block PipeNodeRequirements "Requirements for a a node of a pipe"
          extends Modelica.Blocks.Icons.Block;
-         parameter Modelica.SIunits.Pressure pMax= 1e5
+        parameter Modelica.Units.SI.Pressure pMax=1e5
           "Maximal allowed pressure";
-         parameter Modelica.SIunits.Temperature Tmin = 255
+        parameter Modelica.Units.SI.Temperature Tmin=255
           "Minimum pipe temperature";
-         parameter Modelica.SIunits.Temperature Tmax = 300
+        parameter Modelica.Units.SI.Temperature Tmax=300
           "Maximum pipe temperature";
 
         input Records.Medium observation
@@ -173,14 +172,13 @@ of a pipe shall be between
                 extent={{46,54},{56,21}},
                 lineColor={0,0,0},
                 fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
-                visible=port_b_exposesState),
+                fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-62,54},{-52,21}},
                 lineColor={0,0,0},
                 fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
-                visible=port_b_exposesState),   Line(
+                fillPattern=FillPattern.Solid),
+              Line(
                 points={{-18,-52},{0,-72},{12,-20}},
                 color={0,127,0},
                 smooth=Smooth.None,
@@ -199,6 +197,7 @@ of a pipe shall be between
 
       function PipeObservation_from_DynamicPipe
         "Map DynamicPipe variables to Pipe observations record"
+        extends Modelica.Icons.Function;
         import  Modelica_Requirements.Examples.AirCircuitSystem.Components.*;
         input Requirements.Records.MediumVector dynamicPipe
           "Observation variables from a DynamicPipe";

@@ -365,7 +365,8 @@ oneTrueElement = oneTrue( b )<br>
      input Boolean u "Boolean to be mapped to Property";
     output Modelica_Requirements.Types.Property y "Boolean as Property";
   algorithm
-     y :=if u then Property.Satisfied else Property.Violated
+     y :=if u then Property.Satisfied else Property.Violated;
+
     annotation (Inline=true, Documentation(info="<html>
 
 <h4>Syntax</h4>
@@ -445,7 +446,9 @@ results in
 
 <h4>Description</h4>
 <p>
-If condition is true, the function returns \"<a href=\"Modelica_Requirements.LogicalFunctions.toProperty\">toProperty</a>(check)\" (so either Satisfied or Violated). Otherwise, it returns Undecided. Violated, Undecided, and Satisfied are the elements of enumeration
+If condition is true, the function returns \"<a href=\"modelica://Modelica_Requirements.Types.Property\">Property</a>(check)\"
+(so either Satisfied or Violated). Otherwise, it returns Undecided.
+Violated, Undecided, and Satisfied are the elements of enumeration
 <a href=\"modelica://Modelica_Requirements.Types.Property\">Property</a>
 </p>
 
@@ -499,7 +502,7 @@ results in
 <h4>Description</h4>
 <p>
 If condition is true, the function returns check (which must be of type
-<a href=\"Modelica_Requirements.Types.Property\">Property</a>). Otherwise, it returns Undecided.
+<a href=\"modelica://Modelica_Requirements.Types.Property\">Property</a>). Otherwise, it returns Undecided.
 </p>
 
 <h4>Example</h4>

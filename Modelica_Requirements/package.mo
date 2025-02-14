@@ -1,4 +1,4 @@
-﻿within ;
+within ;
 package Modelica_Requirements "Modelica_Requirements (Version 0.6) - Defining requirements formally and checking them when simulating"
   extends Modelica.Icons.Package;
 
@@ -8,6 +8,16 @@ package UsersGuide "User's Guide"
 
 package ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
+
+  class Version_0_7_0 "Version 0.7.0 (Feb. 13, 2025)"
+  extends Modelica.Icons.ReleaseNotes;
+
+    annotation (Documentation(info="<html>
+<p>
+Updated implementation to Modelica 4.0.0.
+</p>
+</html>"));
+  end Version_0_7_0;
 
   class Version_0_6_1 "Version 0.6.1 (Feb. 3, 2025)"
   extends Modelica.Icons.ReleaseNotes;
@@ -103,13 +113,11 @@ is simulated.
 </html>"));
 end UsersGuide;
 
-
   annotation (preferredView="info",
-  uses(Modelica(version="3.2.2")),
-version="0.6",
-versionBuild=1,
-versionDate="2016-06-21",
-dateModified = "2016-06-21 08:44:41Z",
+  uses(Modelica(version="4.0.0")),
+version="0.7",
+versionDate="2025-02-13",
+dateModified = "2025-02-13",
 revisionId="$Id:: package.mo 9390 2016-06-21 06:35:11Z #$",
 Documentation(info="<html>
 <p>
@@ -138,8 +146,8 @@ upper-case letters.
 </p>
 
 <p>
-This package uses basically Modelica 3.2 language elements and requires at least version 3.2.2 of
-the Modelica Standard Library (some parts will not work with 3.2.1 or an earlier version).
+This package uses basically Modelica 3.6 language elements and requires at least version 4.0.0 of
+the Modelica Standard Library.
 Additionally, the Modelica extension is used in some examples (but not outside of examples) to
 pass a model instance as argument to a function (and the function argument is a record).
 This feature is used to associate requirements in a reasonably convenient way with
@@ -183,6 +191,5 @@ https://github.com/modelica-3rdparty/Modelica_Requirements/blob/master/LICENSE</
 <p>
 <b>Copyright &copy; 2014-2016, DLR, Dassault Aviation and UNICAL</b>
 </p>
-</html>"),
-  Icon(graphics));
+</html>"));
 end Modelica_Requirements;

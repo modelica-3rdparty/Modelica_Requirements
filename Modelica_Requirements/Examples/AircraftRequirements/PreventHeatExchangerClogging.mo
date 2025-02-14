@@ -4,7 +4,7 @@ model PreventHeatExchangerClogging
    extends Modelica.Icons.Example;
    import Modelica_Requirements.LogicalFunctions.*;
 
-  parameter Modelica.SIunits.Mass Mmax= 8e-4;
+  parameter Modelica.Units.SI.Mass Mmax=8e-4;
 
   inner Modelica_Requirements.Verify.PrintViolations printViolations
     annotation (Placement(transformation(extent={{-88,14},{-74,28}})));

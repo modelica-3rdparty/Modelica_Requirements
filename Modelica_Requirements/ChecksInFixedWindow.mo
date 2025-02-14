@@ -79,7 +79,7 @@ results in
     extends Modelica_Requirements.Interfaces.PartialCheck;
     import Modelica_Requirements.Types.Property;
 
-    parameter Modelica.SIunits.Time durationMin(start=1,min=0)
+    parameter Modelica.Units.SI.Time durationMin(start=1, min=0)
       "Minimum duration in true condition phase";
   protected
     discrete Real actualDuration;
@@ -210,7 +210,7 @@ results in
     extends Modelica_Requirements.Interfaces.PartialCheck;
     import Modelica_Requirements.Types.Property;
 
-    parameter Modelica.SIunits.Time durationMax(start=1,min=0)
+    parameter Modelica.Units.SI.Time durationMax(start=1, min=0)
       "Maximum duration in true condition phase";
   protected
     discrete Real actualDuration;
@@ -343,8 +343,8 @@ results in
     "In every true condition phase, check must be true for at least a minimum duration and at most a maximum duration"
     extends Modelica_Requirements.Interfaces.PartialCheck;
     import Modelica_Requirements.Types.Property;
-    parameter Modelica.SIunits.Time durationMin(start=1) "Minimum duration";
-    parameter Modelica.SIunits.Time durationMax(start=2) "Maximum duration";
+    parameter Modelica.Units.SI.Time durationMin(start=1) "Minimum duration";
+    parameter Modelica.Units.SI.Time durationMax(start=2) "Maximum duration";
   protected
     discrete Real actualDuration;
     discrete Real startTime;
@@ -1036,7 +1036,7 @@ results in
     extends Modelica_Requirements.Interfaces.PartialCheck;
     import Modelica_Requirements.Types.Property;
 
-    parameter Modelica.SIunits.Frequency freqHzMax(min=0.0)
+    parameter Modelica.Units.SI.Frequency freqHzMax(min=0.0)
       "Maximum frequency of rising edges in true condition phase";
     Modelica.Blocks.Interfaces.RealOutput freqHz(final quantity="Frequency",final unit="Hz")
       "Check rising edge frequency in true condition phase, otherwise zero"
@@ -1045,9 +1045,9 @@ results in
   protected
     constant Real eps = 100*Modelica.Constants.eps
       "Small number to guard against division of zero";
-    discrete Modelica.SIunits.Time timeOfLastRising
+    discrete Modelica.Units.SI.Time timeOfLastRising
       "Time instance of last rising edge";
-    discrete Modelica.SIunits.Time T
+    discrete Modelica.Units.SI.Time T
       "Duration between actual time and last rising";
     Boolean computeFrequency
       "= true, if frequency can be computed at the next rising";
@@ -1213,7 +1213,7 @@ property = <b>WhenRising</b>(condition=..., check=...).y;
 
 <p>
 At the time instants where condition has a rising edge, property is set to 
-\"<a href=\"Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
+\"<a href=\"modelica://Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
 and keeps this value until the next rising edge. Before the first rising edge,
 property = Undecided. If condition = true during initialization, property = toProperty(check)
 at initialization. 
@@ -1301,7 +1301,7 @@ property = <b>WhenFalling</b>(condition=..., check=...).y;
 
 <p>
 At the time instants where condition has a falling edge, property is set to 
-\"<a href=\"Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
+\"<a href=\"modelica://Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
 and keeps this value until the next falling edge. Before the first falling edge,
 property = Undecided. If condition = false during initialization, property = toProperty(check)
 at initialization. 
@@ -1389,7 +1389,7 @@ property = <b>WhenChanging</b>(condition=..., check=...).y;
 
 <p>
 At the time instants where condition has a changing edge, property is set to 
-\"<a href=\"Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
+\"<a href=\"modelica://Modelica_Requirements.LogicalFunctions.BooleanToProperty\">BooleanToProperty</a>(check)\" (so either Satisfied or Violated)
 and keeps this value until the next changing edge. At initialization, property = Undecided, independently of the value of condition. 
 </p>
 
@@ -1499,7 +1499,7 @@ results in
       "Polygon defining the boundary of the domain (polygon[i,2] is point i of polygon)";
 
   protected
-    type Color = Integer[3](min=0, max=255);
+    type Color = Integer[3](each min=0, each max=255);
     parameter Color inSide = {0, 127, 0} "Color when inside polygon (= green)";
     parameter Color outSide = {255, 0, 0} "Color when outside polygon (= red)";
     parameter Real icon_max = 195 "Length of x and y axis of icon";
@@ -1565,7 +1565,7 @@ results in
             fillColor=DynamicSelect({245,245,245},fillColor),
             fillPattern=FillPattern.Solid),
           Line(points=DynamicSelect({{0,0},{-140,0}}, line1),
-               lineColor=DynamicSelect({0,127,0},varColor)),
+               color=DynamicSelect({0,127,0},varColor)),
           Ellipse(
             extent=DynamicSelect({{-10,10},{10,-10}}, circle1),
             fillPattern=FillPattern.Solid,
@@ -1578,7 +1578,7 @@ results in
             fillColor={135,135,135}),
           Text(
             extent={{-250,210},{250,250}},
-            lineColor={175,175,175},
+            textColor={175,175,175},
             textString="%name")}), Diagram(coordinateSystem(preserveAspectRatio=false,
             extent={{-200,-200},{200,200}}), graphics),
       Documentation(info="<html>
