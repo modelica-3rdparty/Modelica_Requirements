@@ -446,7 +446,7 @@ results in
 
 <h4>Description</h4>
 <p>
-If condition is true, the function returns \"<a href=\"Modelica_Requirements.Types.Property\">Property</a>(check)\"
+If condition is true, the function returns \"<a href=\"modelica://Modelica_Requirements.Types.Property\">Property</a>(check)\"
 (so either Satisfied or Violated). Otherwise, it returns Undecided.
 Violated, Undecided, and Satisfied are the elements of enumeration
 <a href=\"modelica://Modelica_Requirements.Types.Property\">Property</a>
